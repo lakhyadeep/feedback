@@ -3,12 +3,14 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use Illuminate\Support\Facades\App;
 
 class CreateFeedBack extends Component
 {
 
     public $issues;
     public $iCounter;
+    public $language;
 
     public $totaliCounter = 3;
     public $totalSteps = 5;
@@ -64,6 +66,15 @@ class CreateFeedBack extends Component
 
         dd("Save");
     }
+
+    public function changeLanguage()
+    {
+        App::setLocale($this->language);
+        session()->put('locale', $this->language);
+        return $this->currentStep;
+    }
+
+
     public function render()
     {
         return view('livewire.create-feed-back');

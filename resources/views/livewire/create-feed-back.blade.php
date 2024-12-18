@@ -7,18 +7,20 @@
 
             {{-- Step 1 --}}
             @if ($currentStep == 1)
-                <div class="">
+                <div>
                     <div class="card-header d-flex align-items-center gap-3">Select preferred language <select
-                            class="form-select form-select-sm display-inline w-auto" id="wn">
-                            <option value="1">English</option>
-                            <option value="2">বাংলা</option>
-                            <option value="3">অসমীয়া</option>
+                            class="form-select form-select-sm display-inline w-auto" id="wn" wire:model='language'
+                            wire:click='changeLanguage()'>
+                            <option value="en">English</option>
+                            <option value="be">বাংলা</option>
+                            <option value="as">অসমীয়া</option>
                         </select>
                     </div>
                     <div class="card-body">
 
                         <div class="mb-3">
-                            <label for="wn" class="form-label">Ward No.:<span class="redtxt">*</span></label>
+                            <label for="wn" class="form-label">{{ __('label.wardNo') }}:<span
+                                    class="redtxt">*</span></label>
                             <select class="form-select" id="wn">
                                 <option selected disabled>Select word no.</option>
                                 <option value="1">1</option>
@@ -28,18 +30,27 @@
 
                         </div>
                         <div class="mb-3">
-                            <label for="name" class="form-label">Name: <span class="redtxt">*</span></label>
+                            <label for="name" class="form-label">{{ __('label.name') }}: <span
+                                    class="redtxt">*</span></label>
                             <input type="type" class="form-control" id="name">
                         </div>
                         <div class="mb-3">
-                            <label for="address" class="form-label">Address:<span class="redtxt">*</span></label>
+                            <label for="address" class="form-label">{{ __('label.address') }}:<span
+                                    class="redtxt">*</span></label>
                             <input type="type" class="form-control" id="address">
                         </div>
                         <div class="mb-3">
-                            <label for="ph" class="form-label">Phone No.:<span class="redtxt">*</span></label>
+                            <label for="ph" class="form-label">{{ __('label.PhoneNo') }}:<span
+                                    class="redtxt">*</span></label>
                             <input type="number" class="form-control" id="ph">
                         </div>
 
+
+                        <div class="text-right p-3">
+
+                            <button type="button" class="btn btn-primary" wire:click='nextStep()'>Next <i
+                                    class="fa fa-angle-double-right"></i></button>
+                        </div>
 
                     </div>
                 </div>
@@ -47,16 +58,16 @@
 
             {{-- Step 2 --}}
             @if ($currentStep == 2)
-                <div class="">
+                <div>
                     <div class="card-header">Ward Commissioner Performance</div>
                     <div class="card-body p-0">
 
                         <div class="qset">
-                            <h6>How satisfied are you with the accessibility of your Ward Commissioner?</h6>
+                            <h6>{{ __('label.accessibility') }}</h6>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="option" id="optionone">
                                 <label class="form-check-label" for="optionone">
-                                    Very Satisfied
+                                    {{ __('label.accOption.verySatisfied') }}
                                 </label>
                             </div>
                             <div class="form-check">
@@ -179,7 +190,14 @@
 
                         </div>
 
-
+                        <div class="text-right p-3">
+                            <button type="button" class="btn btn-light" wire:click='previousStep()'><i
+                                    class="fa fa-angle-double-left"></i>
+                                Previous
+                            </button>
+                            <button type="button" class="btn btn-primary" wire:click='nextStep()'>Next <i
+                                    class="fa fa-angle-double-right"></i></button>
+                        </div>
                     </div>
                 </div>
             @endif
@@ -383,7 +401,14 @@
                         </div>
 
 
-
+                        <div class="text-right p-3">
+                            <button type="button" class="btn btn-light" wire:click='previousStep()'><i
+                                    class="fa fa-angle-double-left"></i>
+                                Previous
+                            </button>
+                            <button type="button" class="btn btn-primary" wire:click='nextStep()'>Next <i
+                                    class="fa fa-angle-double-right"></i></button>
+                        </div>
 
                     </div>
 
@@ -476,7 +501,14 @@
 
                         </div>
 
-
+                        <div class="text-right p-3">
+                            <button type="button" class="btn btn-light" wire:click='previousStep()'><i
+                                    class="fa fa-angle-double-left"></i>
+                                Previous
+                            </button>
+                            <button type="button" class="btn btn-primary" wire:click='nextStep()'>Next <i
+                                    class="fa fa-angle-double-right"></i></button>
+                        </div>
 
 
                     </div>
@@ -507,7 +539,7 @@
 
                             <div class="text-right">
                                 @if ($iCounter < $totaliCounter)
-                                    <div>
+                                    <div wire:ignore>
                                         <a class="addfld" wire:click='addIssue({{ $iCounter }})'>+
                                             Add more</a>
                                     </div>
@@ -530,29 +562,17 @@
                             </div>
 
                         </div>
+
+                        <div class="text-right p-3">
+                            <button type="button" class="btn btn-light" wire:click='previousStep()'><i
+                                    class="fa fa-angle-double-left"></i>
+                                Previous
+                            </button>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
                     </div>
             @endif
 
-
-
-            <div class="text-right p-3">
-                @if ($currentStep > 1)
-                    <button type="button" class="btn btn-light" wire:click='previousStep()'><i
-                            class="fa fa-angle-double-left"></i>
-                        Previous
-                    </button>
-                @endif
-
-                @if ($currentStep < 5)
-                    <button type="button" class="btn btn-primary" wire:click='nextStep()'>Next <i
-                            class="fa fa-angle-double-right"></i></button>
-                @endif
-
-                @if ($currentStep == 5)
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                @endif
-
-            </div>
         </div>
 
 
