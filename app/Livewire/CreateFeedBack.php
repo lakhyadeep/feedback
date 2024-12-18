@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Ward;
 use Livewire\Component;
 use Illuminate\Support\Facades\App;
 
@@ -10,17 +11,20 @@ class CreateFeedBack extends Component
 
     public $issues;
     public $iCounter;
-    public $language;
+    public $preferred_language;
 
     public $totaliCounter = 3;
     public $totalSteps = 5;
     public $currentStep = 1;
 
+    public $wards;
+
     public function mount()
     {
         $this->issues = [];
         $this->iCounter = 1;
-        return $this->currentStep = 1;
+        $this->currentStep = 1;
+        $this->wards = Ward::where('status', true)->get();
     }
 
     public function addIssue($iCounter)
@@ -69,8 +73,8 @@ class CreateFeedBack extends Component
 
     public function changeLanguage()
     {
-        App::setLocale($this->language);
-        session()->put('locale', $this->language);
+        App::setLocale($this->preferred_language);
+        session()->put('locale', $this->preferred_language);
         return $this->currentStep;
     }
 

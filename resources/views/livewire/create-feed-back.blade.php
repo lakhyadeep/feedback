@@ -8,9 +8,9 @@
             {{-- Step 1 --}}
             @if ($currentStep == 1)
                 <div>
-                    <div class="card-header d-flex align-items-center gap-3">Select preferred language <select
-                            class="form-select form-select-sm display-inline w-auto" id="wn" wire:model='language'
-                            wire:click='changeLanguage()'>
+                    <div class="gap-3 card-header d-flex align-items-center">Select preferred language <select
+                            class="w-auto form-select form-select-sm display-inline" id="wn"
+                            wire:model='preferred_language' wire:click='changeLanguage()'>
                             <option value="en">English</option>
                             <option value="be">বাংলা</option>
                             <option value="as">অসমীয়া</option>
@@ -21,32 +21,34 @@
                         <div class="mb-3">
                             <label for="wn" class="form-label">{{ __('label.wardNo') }}:<span
                                     class="redtxt">*</span></label>
-                            <select class="form-select" id="wn">
-                                <option selected disabled>Select word no.</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
+                            <select class="form-select" id="wn" wire:model='ward_id'>
+                                <option selected disabled>Select ward no</option>
+                                @foreach ($wards as $ward)
+                                    <option value="{{ $ward->id }}">{{ $ward->title }}</option>
+                                @endforeach
+
+
                             </select>
 
                         </div>
                         <div class="mb-3">
                             <label for="name" class="form-label">{{ __('label.name') }}: <span
                                     class="redtxt">*</span></label>
-                            <input type="type" class="form-control" id="name">
+                            <input type="type" class="form-control" id="name" wire:model='name'>
                         </div>
                         <div class="mb-3">
                             <label for="address" class="form-label">{{ __('label.address') }}:<span
                                     class="redtxt">*</span></label>
-                            <input type="type" class="form-control" id="address">
+                            <input type="type" class="form-control" id="address" wire:model='address'>
                         </div>
                         <div class="mb-3">
                             <label for="ph" class="form-label">{{ __('label.PhoneNo') }}:<span
                                     class="redtxt">*</span></label>
-                            <input type="number" class="form-control" id="ph">
+                            <input type="number" class="form-control" id="ph" wire:model='phone_no'>
                         </div>
 
 
-                        <div class="text-right p-3">
+                        <div class="p-3 text-right">
 
                             <button type="button" class="btn btn-primary" wire:click='nextStep()'>Next <i
                                     class="fa fa-angle-double-right"></i></button>
@@ -60,7 +62,7 @@
             @if ($currentStep == 2)
                 <div>
                     <div class="card-header">Ward Commissioner Performance</div>
-                    <div class="card-body p-0">
+                    <div class="p-0 card-body">
 
                         <div class="qset">
                             <h6>{{ __('label.accessibility') }}</h6>
@@ -190,7 +192,7 @@
 
                         </div>
 
-                        <div class="text-right p-3">
+                        <div class="p-3 text-right">
                             <button type="button" class="btn btn-light" wire:click='previousStep()'><i
                                     class="fa fa-angle-double-left"></i>
                                 Previous
@@ -206,7 +208,7 @@
             @if ($currentStep == 3)
                 <div>
                     <div class="card-header">Development & Infrastructure</div>
-                    <div class="card-body p-0">
+                    <div class="p-0 card-body">
                         <div class="qset">
                             <h6>Rate the current status of the following services in your ward:</h6>
                             <div class="mb-2"><strong>a. Roads and Pavements</strong></div>
@@ -236,7 +238,7 @@
                                     Poor
                                 </label>
                             </div>
-                            <div class="mb-2 mt-4"><strong>b. Drainage System</strong></div>
+                            <div class="mt-4 mb-2"><strong>b. Drainage System</strong></div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="option2" id="optionsix">
                                 <label class="form-check-label" for="optionsix">
@@ -263,7 +265,7 @@
                                     Poor
                                 </label>
                             </div>
-                            <div class="mb-2 mt-4"><strong>c. Waste Management</strong></div>
+                            <div class="mt-4 mb-2"><strong>c. Waste Management</strong></div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="option2" id="optionsix">
                                 <label class="form-check-label" for="optionsix">
@@ -290,7 +292,7 @@
                                     Poor
                                 </label>
                             </div>
-                            <div class="mb-2 mt-4"><strong>d. Street Lighting</strong></div>
+                            <div class="mt-4 mb-2"><strong>d. Street Lighting</strong></div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="option2" id="optionsix">
                                 <label class="form-check-label" for="optionsix">
@@ -317,7 +319,7 @@
                                     Poor
                                 </label>
                             </div>
-                            <div class="mb-2 mt-4"><strong>e. Parks and Public Spaces</strong></div>
+                            <div class="mt-4 mb-2"><strong>e. Parks and Public Spaces</strong></div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="option2" id="optionsix">
                                 <label class="form-check-label" for="optionsix">
@@ -401,7 +403,7 @@
                         </div>
 
 
-                        <div class="text-right p-3">
+                        <div class="p-3 text-right">
                             <button type="button" class="btn btn-light" wire:click='previousStep()'><i
                                     class="fa fa-angle-double-left"></i>
                                 Previous
@@ -420,7 +422,7 @@
             @if ($currentStep == 4)
                 <div>
                     <div class="card-header">Community Engagement</div>
-                    <div class="card-body p-0">
+                    <div class="p-0 card-body">
                         <div class="qset">
                             <h6>Have you attended any meetings, drives, or events organized by the Ward
                                 Commissioner?
@@ -501,7 +503,7 @@
 
                         </div>
 
-                        <div class="text-right p-3">
+                        <div class="p-3 text-right">
                             <button type="button" class="btn btn-light" wire:click='previousStep()'><i
                                     class="fa fa-angle-double-left"></i>
                                 Previous
@@ -519,7 +521,7 @@
             @if ($currentStep == 5)
                 <div>
                     <div class="card-header">Suggestions and Additional Feedback</div>
-                    <div class="card-body p-0">
+                    <div class="p-0 card-body">
                         <div class="qset">
                             <h6>What are the three most critical issues you feel need immediate attention in your
                                 ward?
@@ -563,7 +565,7 @@
 
                         </div>
 
-                        <div class="text-right p-3">
+                        <div class="p-3 text-right">
                             <button type="button" class="btn btn-light" wire:click='previousStep()'><i
                                     class="fa fa-angle-double-left"></i>
                                 Previous
