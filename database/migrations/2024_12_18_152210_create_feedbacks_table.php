@@ -37,7 +37,7 @@ return new class extends Migration
             $table->enum('environmentally_sustainable', ['Yes', 'No'])->nullable();
 
             $table->enum('attended_meeting_drive_event', ['Yes', 'No'])->nullable();
-            $table->enum('opinions_considered_dev_plans  ', ['Always', 'Sometimes', 'Rarely', 'Never'])->nullable();
+            $table->enum('opinions_considered_dev_plans', ['Always', 'Sometimes', 'Rarely', 'Never'])->nullable();
             $table->enum('communication_citizens_municipality', ['Excellent', 'Good', 'Average', 'Poor'])->nullable();
             $table->json('most_critical_issues')->nullable();
             $table->text('additional_suggestions')->nullable();

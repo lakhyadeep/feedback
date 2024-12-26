@@ -92,37 +92,37 @@
                             <h6>{{ __('label.accessibility') }}</h6>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='accessibility' value="Very Satisfied"
-                                    type="radio" name="option" id="optionone">
-                                <label class="form-check-label" for="optionone">
+                                    type="radio" name="accessibility" id="accessibility_very_satisfied">
+                                <label class="form-check-label" for="accessibility_very_satisfied">
                                     {{ __('label.accOption.verySatisfied') }}
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='accessibility' value="Satisfied"
-                                    type="radio" name="option" id="optiontwo" checked>
-                                <label class="form-check-label" for="optiontwo">
+                                    type="radio" name="accessibility" id="accessibility_satisfied" checked>
+                                <label class="form-check-label" for="accessibility_satisfied">
                                     Satisfied
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='accessibility' value="Neutral"
-                                    type="radio" name="option" id="optionthree">
-                                <label class="form-check-label" for="optionthree">
+                                    type="radio" name="accessibility" id="accessibility_neutral">
+                                <label class="form-check-label" for="accessibility_neutral">
                                     Neutral
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='accessibility' value="Dissatisfied"
-                                    type="radio" name="option" id="optionfour" checked>
-                                <label class="form-check-label" for="optionfour">
+                                    type="radio" name="accessibility" id="accessibility_dissatisfied" checked>
+                                <label class="form-check-label" for="accessibility_dissatisfied">
                                     Dissatisfied
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='accessibility'
-                                    value="Very Dissatisfied" type="radio" name="option" id="optionfive"
-                                    value="Very Dissatisfied" checked>
-                                <label class="form-check-label" for="optionfive">
+                                    value="Very Dissatisfied" type="radio" name="accessibility"
+                                    id="accessibility_very_dissatisfied" value="Very Dissatisfied" checked>
+                                <label class="form-check-label" for="accessibility_very_dissatisfied">
                                     Very Dissatisfied
                                 </label>
                             </div>
@@ -136,41 +136,41 @@
                             </h6>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio"
-                                    wire:model.lazy='responsiveness_grievances' value="Excellent" name="option2"
-                                    id="optionsix">
-                                <label class="form-check-label" for="optionsix">
+                                    wire:model.lazy='responsiveness_grievances' value="Excellent"
+                                    name="responsiveness" id="responsiveness_excellent">
+                                <label class="form-check-label" for="responsiveness_excellent">
                                     Excellent
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio"
-                                    wire:model.lazy='responsiveness_grievances' value="Good" name="option2"
-                                    id="optionseven" checked>
-                                <label class="form-check-label" for="optionseven">
+                                    wire:model.lazy='responsiveness_grievances' value="Good" name="responsiveness"
+                                    id="responsiveness_good" checked>
+                                <label class="form-check-label" for="responsiveness_good">
                                     Good
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio"
-                                    wire:model.lazy='responsiveness_grievances' value="Average" name="option2"
-                                    id="optioneight">
-                                <label class="form-check-label" for="optioneight">
+                                    wire:model.lazy='responsiveness_grievances' value="Average" name="responsiveness"
+                                    id="responsiveness_average">
+                                <label class="form-check-label" for="responsiveness_average">
                                     Average
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio"
-                                    wire:model.lazy='responsiveness_grievances' value="Poor" name="option2"
-                                    id="optionnine" checked>
-                                <label class="form-check-label" for="optionnine">
+                                    wire:model.lazy='responsiveness_grievances' value="Poor" name="responsiveness"
+                                    id="responsiveness_poor" checked>
+                                <label class="form-check-label" for="responsiveness_poor">
                                     Poor
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio"
-                                    wire:model.lazy='responsiveness_grievances' value="Very Poor" name="option2"
-                                    id="optionten" checked>
-                                <label class="form-check-label" for="optionten">
+                                    wire:model.lazy='responsiveness_grievances' value="Very Poor"
+                                    name="responsiveness" id="responsiveness_very_poor" checked>
+                                <label class="form-check-label" for="responsiveness_very_poor">
                                     Very Poor
                                 </label>
                             </div>
@@ -184,31 +184,33 @@
                             </h6>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio"
-                                    wire:model.lazy='proactive_step_issues' value="Always" name="option3"
-                                    id="optioneleven">
-                                <label class="form-check-label" for="optioneleven">
+                                    wire:model.lazy='proactive_step_issues' value="Always"
+                                    name="proactive_step_issues" id="proactive_step_issues_always">
+                                <label class="form-check-label" for="proactive_step_issues_always">
                                     Always
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio"
-                                    wire:model.lazy='proactive_step_issues' value="Sometimes" name="option3"
-                                    id="optiontwelve" checked>
-                                <label class="form-check-label" for="optiontwelve">
+                                    wire:model.lazy='proactive_step_issues' value="Sometimes"
+                                    name="proactive_step_issues" id="proactive_step_issues_sometimes" checked>
+                                <label class="form-check-label" for="proactive_step_issues_sometimes">
                                     Sometimes
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='proactive_step_issues'
-                                    value="Rarely" type="radio" name="option3" id="optionthirteen">
-                                <label class="form-check-label" for="optionthirteen">
+                                    value="Rarely" type="radio" name="proactive_step_issues"
+                                    id="proactive_step_issues_rarely">
+                                <label class="form-check-label" for="proactive_step_issues_rarely">
                                     Rarely
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='proactive_step_issues'
-                                    value="Never" type="radio" name="option3" id="optionfourteen" checked>
-                                <label class="form-check-label" for="optionfourteen">
+                                    value="Never" type="radio" name="proactive_step_issues"
+                                    id="proactive_step_issues_never" checked>
+                                <label class="form-check-label" for="proactive_step_issues_never">
                                     Never
                                 </label>
                             </div>
@@ -223,15 +225,17 @@
                             </h6>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='transparent_action_and_decision'
-                                    value="Yes" type="radio" name="option4" id="optionfifteen">
-                                <label class="form-check-label" for="optionfifteen">
+                                    value="Yes" type="radio" name="transparent_action_and_decision"
+                                    id="transparent_action_and_decision_yes">
+                                <label class="form-check-label" for="transparent_action_and_decision_yes">
                                     Yes
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='transparent_action_and_decision'
-                                    value="No" type="radio" name="option4" id="optionsixteen" checked>
-                                <label class="form-check-label" for="optionsixteen">
+                                    value="No" type="radio" name="transparent_action_and_decision"
+                                    id="transparent_action_and_decision_no" checked>
+                                <label class="form-check-label" for="transparent_action_and_decision_no">
                                     No
                                 </label>
                             </div>
@@ -245,7 +249,7 @@
                         <div class="qset">
                             <h6>Please share any suggestions or feedback for your Ward Commissioner:</h6>
                             <div>
-                                <textarea class="form-control" wire:model.lazy='suggestions' id="exampleFormControlTextarea1" rows="3"
+                                <textarea class="form-control" wire:model.lazy='suggestions' name="suggestions" id="suggestions" rows="3"
                                     placeholder="Write your feedback"></textarea>
                             </div>
 
@@ -276,29 +280,29 @@
                             <div class="mb-2"><strong>a. Roads and Pavements</strong></div>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='roads_pavements' value="Excellent"
-                                    type="radio" name="option" id="optionone">
-                                <label class="form-check-label" for="optionone">
+                                    type="radio" name="roads_pavements" id="roads_pavements_excellent">
+                                <label class="form-check-label" for="roads_pavements_excellent">
                                     Excellent
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='roads_pavements' value="Good"
-                                    type="radio" name="option" id="optiontwo" checked>
-                                <label class="form-check-label" for="optiontwo">
+                                    type="radio" name="roads_pavements" id="roads_pavements_good" checked>
+                                <label class="form-check-label" for="roads_pavements_good">
                                     Good
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='roads_pavements' value="Average"
-                                    type="radio" name="option" id="optionthree">
-                                <label class="form-check-label" for="optionthree">
+                                    type="radio" name="roads_pavements" id="roads_pavements_average">
+                                <label class="form-check-label" for="roads_pavements_average">
                                     Average
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='roads_pavements' value="Poor"
-                                    type="radio" name="option" id="optionfour" checked>
-                                <label class="form-check-label" for="optionfour">
+                                    type="radio" name="roads_pavements" id="roads_pavements_poor" checked>
+                                <label class="form-check-label" for="roads_pavements_poor">
                                     Poor
                                 </label>
                             </div>
@@ -310,29 +314,29 @@
                             <div class="mt-4 mb-2"><strong>b. Drainage System</strong></div>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='drainage_system' value="Excellent"
-                                    type="radio" name="option2" id="optionsix">
-                                <label class="form-check-label" for="optionsix">
+                                    type="radio" name="drainage_system" id="drainage_system_excellent">
+                                <label class="form-check-label" for="drainage_system_excellent">
                                     Excellent
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='drainage_system' value="Good"
-                                    type="radio" name="option2" id="optionseven" checked>
-                                <label class="form-check-label" for="optionseven">
+                                    type="radio" name="drainage_system" id="drainage_system_good" checked>
+                                <label class="form-check-label" for="drainage_system_good">
                                     Good
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='drainage_system' value="Average"
-                                    type="radio" name="option2" id="optioneight">
-                                <label class="form-check-label" for="optioneight">
+                                    type="radio" name="drainage_system" id="drainage_system_average">
+                                <label class="form-check-label" for="drainage_system_average">
                                     Average
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='drainage_system' value="Poor"
-                                    type="radio" name="option2" id="optionnine" checked>
-                                <label class="form-check-label" for="optionnine">
+                                    type="radio" name="drainage_system" id="drainage_system_poor" checked>
+                                <label class="form-check-label" for="drainage_system_poor">
                                     Poor
                                 </label>
                             </div>
@@ -343,29 +347,29 @@
                             <div class="mt-4 mb-2"><strong>c. Waste Management</strong></div>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='waste_management' value="Excellent"
-                                    type="radio" name="option2" id="optionsix">
-                                <label class="form-check-label" for="optionsix">
+                                    type="radio" name="waste_management" id="waste_management_excellent">
+                                <label class="form-check-label" for="waste_management_excellent">
                                     Excellent
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='waste_management' value="Good"
-                                    type="radio" name="option2" id="optionseven" checked>
-                                <label class="form-check-label" for="optionseven">
+                                    type="radio" name="waste_management" id="waste_management_good" checked>
+                                <label class="form-check-label" for="waste_management_good">
                                     Good
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='waste_management' value="Average"
-                                    type="radio" name="option2" id="optioneight">
-                                <label class="form-check-label" for="optioneight">
+                                    type="radio" name="waste_management" id="waste_management_average">
+                                <label class="form-check-label" for="waste_management_average">
                                     Average
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='waste_management' value="Poor"
-                                    type="radio" name="option2" id="optionnine" checked>
-                                <label class="form-check-label" for="optionnine">
+                                    type="radio" name="waste_management" id="waste_management_poor" checked>
+                                <label class="form-check-label" for="waste_management_poor">
                                     Poor
                                 </label>
                             </div>
@@ -376,29 +380,29 @@
                             <div class="mt-4 mb-2"><strong>d. Street Lighting</strong></div>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='street_lighting' value="Excellent"
-                                    type="radio" name="option2" id="optionsix">
-                                <label class="form-check-label" for="optionsix">
+                                    type="radio" name="street_lighting" id="street_lighting_excellent">
+                                <label class="form-check-label" for="street_lighting_excellent">
                                     Excellent
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='street_lighting' value="Good"
-                                    type="radio" name="option2" id="optionseven" checked>
-                                <label class="form-check-label" for="optionseven">
+                                    type="radio" name="street_lighting" id="street_lighting_good" checked>
+                                <label class="form-check-label" for="street_lighting_good">
                                     Good
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='street_lighting' value="Average"
-                                    type="radio" name="option2" id="optioneight">
-                                <label class="form-check-label" for="optioneight">
+                                    type="radio" name="street_lighting" id="street_lighting_average">
+                                <label class="form-check-label" for="street_lighting_average">
                                     Average
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='street_lighting' value="Poor"
-                                    type="radio" name="option2" id="optionnine" checked>
-                                <label class="form-check-label" for="optionnine">
+                                    type="radio" name="street_lighting" id="street_lighting_poor" checked>
+                                <label class="form-check-label" for="street_lighting_poor">
                                     Poor
                                 </label>
                             </div>
@@ -410,29 +414,30 @@
                             <div class="mt-4 mb-2"><strong>e. Parks and Public Spaces</strong></div>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='parks_public_spaces'
-                                    value="Excellent" type="radio" name="option2" id="optionsix">
-                                <label class="form-check-label" for="optionsix">
+                                    value="Excellent" type="radio" name="parks_public_spaces"
+                                    id="parks_public_spaces_excellent">
+                                <label class="form-check-label" for="parks_public_spaces_excellent">
                                     Excellent
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='parks_public_spaces' value="Good"
-                                    type="radio" name="option2" id="optionseven" checked>
-                                <label class="form-check-label" for="optionseven">
+                                    type="radio" name="parks_public_spaces" id="parks_public_spaces_good" checked>
+                                <label class="form-check-label" for="parks_public_spaces_good">
                                     Good
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='parks_public_spaces' value="Average"
-                                    type="radio" name="option2" id="optioneight">
-                                <label class="form-check-label" for="optioneight">
+                                    type="radio" name="parks_public_spaces" id="parks_public_spaces_average">
+                                <label class="form-check-label" for="parks_public_spaces_average">
                                     Average
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='parks_public_spaces' value="Poor"
-                                    type="radio" name="option2" id="optionnine" checked>
-                                <label class="form-check-label" for="optionnine">
+                                    type="radio" name="parks_public_spaces" id="parks_public_spaces_poor" checked>
+                                <label class="form-check-label" for="parks_public_spaces_poor">
                                     Poor
                                 </label>
                             </div>
@@ -445,15 +450,17 @@
                             <h6>Are sanitation and water supply services adequate in your ward?</h6>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='sanitation_water_supply_adequate'
-                                    value="Yes" type="radio" name="option2" id="optionsix">
-                                <label class="form-check-label" for="optionsix">
+                                    value="Yes" type="radio" name="sanitation_water_supply_adequate"
+                                    id="sanitation_water_supply_adequate_yes">
+                                <label class="form-check-label" for="sanitation_water_supply_adequate_yes">
                                     Yes
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='sanitation_water_supply_adequate'
-                                    value="No" type="radio" name="option2" id="optionseven" checked>
-                                <label class="form-check-label" for="optionseven">
+                                    value="No" type="radio" name="sanitation_water_supply_adequate"
+                                    id="sanitation_water_supply_adequate_no" checked>
+                                <label class="form-check-label" for="sanitation_water_supply_adequate_no">
                                     No
                                 </label>
                             </div>
@@ -467,15 +474,15 @@
                             <h6>Do you feel safe in your ward (e.g., security, street lighting)?</h6>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='feel_safe' value="Yes"
-                                    type="radio" name="option3" id="optioneleven">
-                                <label class="form-check-label" for="optioneleven">
+                                    type="radio" name="feel_safe" id="feel_safe_yes">
+                                <label class="form-check-label" for="feel_safe_yes">
                                     Yes
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='feel_safe' value="No"
-                                    type="radio" name="option3" id="optiontwelve" checked>
-                                <label class="form-check-label" for="optiontwelve">
+                                    type="radio" name="feel_safe" id="feel_safe_no" checked>
+                                <label class="form-check-label" for="feel_safe_no">
                                     No
                                 </label>
                             </div>
@@ -491,15 +498,17 @@
                                 segregation)?</h6>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='environmentally_sustainable'
-                                    value="Yes" type="radio" name="option4" id="optionfifteen">
-                                <label class="form-check-label" for="optionfifteen">
+                                    value="Yes" type="radio" name="environmentally_sustainable"
+                                    id="environmentally_sustainable_yes">
+                                <label class="form-check-label" for="environmentally_sustainable_yes">
                                     Yes
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='environmentally_sustainable'
-                                    value="No" type="radio" name="option4" id="optionsixteen" checked>
-                                <label class="form-check-label" for="optionsixteen">
+                                    value="No" type="radio" name="environmentally_sustainable"
+                                    id="environmentally_sustainable_no" checked>
+                                <label class="form-check-label" for="environmentally_sustainable_no">
                                     No
                                 </label>
                             </div>
@@ -537,15 +546,17 @@
                             </h6>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='attended_meeting_drive_event'
-                                    value="Yes" type="radio" name="option" id="optionone">
-                                <label class="form-check-label" for="optionone">
+                                    value="Yes" type="radio" name="attended_meeting_drive_event"
+                                    id="attended_meeting_drive_event_yes">
+                                <label class="form-check-label" for="attended_meeting_drive_event_yes">
                                     Yes
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='attended_meeting_drive_event'
-                                    value="No" type="radio" name="option" id="optiontwo" checked>
-                                <label class="form-check-label" for="optiontwo">
+                                    value="No" type="radio" name="attended_meeting_drive_event"
+                                    id="attended_meeting_drive_event_no" checked>
+                                <label class="form-check-label" for="attended_meeting_drive_event_no">
                                     No
                                 </label>
                             </div>
@@ -559,29 +570,33 @@
                             <h6>Do you think citizens’ opinions are considered in the ward’s development plans?</h6>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='opinions_considered_dev_plans'
-                                    value="Always" type="radio" name="option2" id="optionsix">
-                                <label class="form-check-label" for="optionsix">
+                                    value="Always" type="radio" name="opinions_considered_dev_plans"
+                                    id="opinions_considered_dev_plans_always">
+                                <label class="form-check-label" for="opinions_considered_dev_plans_always">
                                     Always
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='opinions_considered_dev_plans'
-                                    value="Sometimes" type="radio" name="option2" id="optionseven" checked>
-                                <label class="form-check-label" for="optionseven">
+                                    value="Sometimes" type="radio" name="opinions_considered_dev_plans"
+                                    id="opinions_considered_dev_plans_sometimes" checked>
+                                <label class="form-check-label" for="opinions_considered_dev_plans_sometimes">
                                     Sometimes
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='opinions_considered_dev_plans'
-                                    value="Rarely" type="radio" name="option2" id="optioneight">
-                                <label class="form-check-label" for="optioneight">
+                                    value="Rarely" type="radio" name="opinions_considered_dev_plans"
+                                    id="opinions_considered_dev_plans_rarely">
+                                <label class="form-check-label" for="opinions_considered_dev_plans_rarely">
                                     Rarely
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='opinions_considered_dev_plans'
-                                    value="Never" type="radio" name="option2" id="optionnine" checked>
-                                <label class="form-check-label" for="optionnine">
+                                    value="Never" type="radio" name="opinions_considered_dev_plans"
+                                    id="opinions_considered_dev_plans_never" checked>
+                                <label class="form-check-label" for="opinions_considered_dev_plans_never">
                                     Never
                                 </label>
                             </div>
@@ -595,29 +610,33 @@
                             <h6>How would you rate overall communication between citizens and the municipality?</h6>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='communication_citizens_municipality'
-                                    value="Excellent" type="radio" name="option3" id="optioneleven">
-                                <label class="form-check-label" for="optioneleven">
+                                    value="Excellent" type="radio" name="communication_citizens_municipality"
+                                    id="communication_citizens_municipality_excellent">
+                                <label class="form-check-label" for="communication_citizens_municipality_excellent">
                                     Excellent
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='communication_citizens_municipality'
-                                    value="Good" type="radio" name="option3" id="optiontwelve" checked>
-                                <label class="form-check-label" for="optiontwelve">
+                                    value="Good" type="radio" name="communication_citizens_municipality"
+                                    id="communication_citizens_municipality_good" checked>
+                                <label class="form-check-label" for="communication_citizens_municipality_good">
                                     Good
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='communication_citizens_municipality'
-                                    value="Average" type="radio" name="option3" id="optionthirteen">
-                                <label class="form-check-label" for="optionthirteen">
+                                    value="Average" type="radio" name="communication_citizens_municipality"
+                                    id="communication_citizens_municipality_average">
+                                <label class="form-check-label" for="communication_citizens_municipality_average">
                                     Average
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='communication_citizens_municipality'
-                                    value="Poor" type="radio" name="option3" id="optionfourteen" checked>
-                                <label class="form-check-label" for="optionfourteen">
+                                    value="Poor" type="radio" name="communication_citizens_municipality"
+                                    id="communication_citizens_municipality_poor" checked>
+                                <label class="form-check-label" for="communication_citizens_municipality_poor">
                                     Poor
                                 </label>
                             </div>
@@ -657,9 +676,10 @@
                             </div> --}}
                             @foreach ($most_critical_issues as $key => $value)
                                 <div class="mb-2 inputrow">
-                                    <input type="text" class="form-control" id="feedback"
-                                        placeholder="Write your issue"
-                                        wire:model.lazy='most_critical_issues.{{ $key }}'>
+                                    <input type="text" class="form-control"
+                                        name="most_critical_issues{{ $key }}"
+                                        wire:model.lazy='most_critical_issues.{{ $key }}'
+                                        placeholder="Write your issue" id="feedback">
                                 </div>
 
                                 {{-- {{ var_dump($errors) }} --}}
@@ -696,8 +716,8 @@
                             <h6>Any additional feedback or suggestions for the Ward Commissioner or Municipality
                             </h6>
                             <div>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="Write your feedback"
-                                    wire:model.lazy='additional_suggestions'></textarea>
+                                <textarea class="form-control" name="additional_suggestions" id="additional_suggestions" rows="4"
+                                    placeholder="Write your feedback" wire:model.lazy='additional_suggestions'></textarea>
                             </div>
 
                             @error('additional_suggestions')

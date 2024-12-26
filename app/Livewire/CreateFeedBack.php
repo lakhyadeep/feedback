@@ -3,8 +3,9 @@
 namespace App\Livewire;
 
 use App\Models\Ward;
-use App\Rules\AlphaSpace;
 use Livewire\Component;
+use App\Models\Feedback;
+use App\Rules\AlphaSpace;
 use Illuminate\Support\Facades\App;
 
 class CreateFeedBack extends Component
@@ -157,7 +158,7 @@ class CreateFeedBack extends Component
         $rules = collect($this->validationRules)->collapse()->toArray();
         //dd($rules);
         $validatedData = $this->validate($rules);
-
-        dd($validatedData);
+        Feedback::create($validatedData);
+        return redirect()->route('thankyou');
     }
 }
