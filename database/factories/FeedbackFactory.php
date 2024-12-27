@@ -5,6 +5,7 @@ namespace Database\Factories;
 use App\Models\Ward;
 use App\Models\Feedback;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Nette\Utils\Random;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
@@ -15,7 +16,7 @@ class FeedbackFactory extends Factory
     public function definition(): array
     {
         return [
-            'preferred_language' => 'en',
+            'preferred_language' => fake()->randomElement(['en', 'bn', 'as', 'hi']),
             'ward_id' => Ward::inRandomOrder()->first()->id,
             'name' => fake()->name(),
             'address' => fake()->address(),
@@ -39,7 +40,11 @@ class FeedbackFactory extends Factory
             'attended_meeting_drive_event' => fake()->randomElement(['Yes', 'No']),
             'opinions_considered_dev_plans' => fake()->randomElement(['Always', 'Sometimes', 'Rarely', 'Never']),
             'communication_citizens_municipality' => fake()->randomElement(['Excellent', 'Good', 'Average', 'Poor']),
-            'most_critical_issues' => json_encode([fake()->sentence(), fake()->sentence(), fake()->sentence()]),
+            'most_critical_issues' => array_filter([
+                fake()->sentence(), // Required element
+                fake()->optional()->sentence(), // Optional element (may return null)
+                fake()->optional()->sentence(), // Optional element (may return null)
+            ]),
             'additional_suggestions' => fake()->text(),
         ];
     }

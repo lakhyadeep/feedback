@@ -17,19 +17,20 @@ class Feedback extends Model
 
 
     protected $casts = [
-        'most_critical_issues' => 'array',
+        'most_critical_issues' => 'json',
     ];
 
 
-    protected function mostCriticalIssues(): Attribute
-    {
-        return Attribute::make(
-            set: fn($value) => json_encode($value),
-        );
-    }
+    // protected function mostCriticalIssues(): Attribute
+    // {
+    //     return Attribute::make(
+    //         get: fn($value) => json_decode($value, true),
+    //         set: fn($value) => json_encode($value),
+    //     );
+    //}
 
     public function ward(): BelongsTo
     {
-        return $this->belongsTo(Ward::class);
+        return $this->belongsTo(Ward::class)->orderBy('id', 'asc');
     }
 }

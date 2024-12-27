@@ -158,6 +158,11 @@ class CreateFeedBack extends Component
         $rules = collect($this->validationRules)->collapse()->toArray();
         //dd($rules);
         $validatedData = $this->validate($rules);
+
+        // foreach ($validatedData['most_critical_issues'] as $key => $value) {
+        //     $validatedData['most_critical_issues'][$key] = $value;
+        // }
+        //dd($validatedData);
         Feedback::create($validatedData);
         return redirect()->route('thankyou');
     }

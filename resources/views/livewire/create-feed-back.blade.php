@@ -12,7 +12,7 @@
                             class="w-auto form-select form-select-sm display-inline" id="wn"
                             wire:model.lazy='preferred_language' wire:click='changeLanguage()'>
                             <option value="en">English</option>
-                            <option value="be">বাংলা</option>
+                            <option value="bn">বাংলা</option>
                             <option value="as">অসমীয়া</option>
                         </select>
                     </div>
