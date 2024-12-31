@@ -22,9 +22,11 @@
     <div class="main-wrapper">
 
         <div class="header">
-            <div class="logo"><img src="{{asset('images/logo.png')}}" alt="" class="img-fluid">
-                <strong>Dibrugarh Municipal Corporation</strong>
-            </div>
+            <a href="{{ route('home') }}" class="link-dark">
+                <div class="logo"><img src="{{ asset('images/logo.png') }}" alt="" class="img-fluid">
+                    <strong>Dibrugarh Municipal Corporation</strong>
+                </div>
+            </a>
         </div>
 
         <div class="section-body">
