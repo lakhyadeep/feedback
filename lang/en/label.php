@@ -75,5 +75,16 @@ return [
     'submitFeedback' => "Submit Feedback",
     'writeYourFeedback' => "Write your feedback",
 
-
+    'sanitationWaterSupply' => "Are sanitation and water supply services adequate in your ward?",
+    'feelSafe' => "Do you feel safe in your ward (e.g., security, street lighting)?",
+    'environmentallySustainable' => "Do you think the ward is environmentally sustainable (e.g., green spaces, waste segregation)?",
+    'drainageSystem' => "How would you rate the drainage system in your ward?",
+    'publicTransport' => "How would you rate the public transport in your ward?",
+    'publicSafety' => "How would you rate the public safety in your ward?",
+    'environmentalQualityLabel' => "How would you rate the environmental quality in your ward?",
+    'communityDevelopmentLabel' => "How would you rate the community development in your ward?",
+    'overallSatisfactionLabel' => "Overall Satisfaction",
+    'wasteManagement' => "How would you rate the waste management in your ward?",
+    'streetLighting' => "How would you rate the street lighting in your ward?",
+    'parksPublicSpaces' => "How would you rate the parks and public spaces in your ward?",
 ];
