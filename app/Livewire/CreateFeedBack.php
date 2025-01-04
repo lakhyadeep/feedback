@@ -6,6 +6,7 @@ use App\Models\Ward;
 use Livewire\Component;
 use App\Models\Feedback;
 use App\Rules\AlphaSpace;
+use Livewire\Attributes\Url;
 use Livewire\WithFileUploads;
 use Livewire\Attributes\Title;
 use Illuminate\Support\Facades\App;
@@ -16,6 +17,9 @@ class CreateFeedBack extends Component
 
     use WithFileUploads;
 
+
+    //public ?string $ward;
+
     public $most_critical_issues = [''];
     public $totalSteps = 5;
     public $currentStep = 1;
@@ -24,7 +28,10 @@ class CreateFeedBack extends Component
 
     //////////////Form fields ////////
     public $preferred_language = "en";
+
+    #[Url(as: 'ward')]
     public $ward_id;
+
     public $name;
     public $address;
     public $phone_no;
@@ -50,9 +57,12 @@ class CreateFeedBack extends Component
     public $additional_suggestions;
     public $attach_file = [''];
 
+    public $disabledOption;
+
 
     public function mount()
     {
+        $this->disabledOption = request()->query('ward');
         $this->wards = Ward::where('status', true)->get();
     }
 
@@ -60,7 +70,7 @@ class CreateFeedBack extends Component
     public function nextStep()
     {
         // validate
-        //$this->validate($this->validationRules[$this->currentStep]);
+        $this->validate($this->validationRules[$this->currentStep]);
 
         $this->currentStep++;
         if ($this->currentStep > $this->totalSteps) {
@@ -123,8 +133,7 @@ class CreateFeedBack extends Component
             'ward_id' => ['required'],
             'name' => ['required', 'min:3', 'regex:/^[a-zA-Z\s]+$/'],
             'address' => ['required'],
-            //'phoneNo' => ['required', 'regex:/^[6-9]\d{9}$/']
-            'phone_no' => ['required']
+            'phone_no' => ['required', 'regex:/^[6-9]\d{9}$/']
         ],
 
         2 => [

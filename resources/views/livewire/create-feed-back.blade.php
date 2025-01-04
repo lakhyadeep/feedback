@@ -25,10 +25,12 @@
                         <div class="mb-3">
                             <label for="wn" class="form-label">{{ __('label.wardNo') }}:<span
                                     class="redtxt">*</span></label>
-                            <select class="form-select" id="wn" name="ward_id" wire:model.lazy='ward_id'>
+                            <select class="form-select" id="wn" name="ward_id"
+                                @if ($disabledOption) disabled @endif wire:model.lazy='ward_id'>
                                 <option value="" selected>Select ward no</option>
                                 @foreach ($wards as $ward)
-                                    <option value="{{ $ward->id }}">{{ $ward->title }}</option>
+                                    <option value="{{ $ward->id }}"> {{ $ward->title }}
+                                    </option>
                                 @endforeach
                             </select>
 
