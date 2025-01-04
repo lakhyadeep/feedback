@@ -176,6 +176,11 @@ return [
         '*' => [
             'required' => 'This field is required',
         ],
+
+        'attach_file.*' => [
+            'mimes' => 'The field must be a file of type: :values.',
+            'max' => 'The file field must be less than or equal to :value kilobytes.',
+        ],
     ],
 
     /*
@@ -189,6 +194,8 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        //'attach_file' => __('label.uploadFile'),
+    ],
 
 ];

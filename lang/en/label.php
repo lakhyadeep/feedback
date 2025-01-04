@@ -87,4 +87,5 @@ return [
     'wasteManagement' => "How would you rate the waste management in your ward?",
     'streetLighting' => "How would you rate the street lighting in your ward?",
     'parksPublicSpaces' => "How would you rate the parks and public spaces in your ward?",
+    'uploadFile' => "Upload Attachment",
 ];

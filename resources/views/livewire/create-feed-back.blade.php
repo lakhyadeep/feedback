@@ -89,7 +89,7 @@
                     <div class="p-0 card-body">
 
                         <div class="qset">
-                            <h6>{{ __('label.accessibility') }}</h6>
+                            <h6>{{ __('label.accessibility') }} <span class="redtxt">*</span></label></h6>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='accessibility' value="Very Satisfied"
                                     type="radio" name="accessibility" id="accessibility_very_satisfied">
@@ -133,7 +133,7 @@
                             @enderror
                         </div>
                         <div class="qset">
-                            <h6>{{ __('label.responsivenessGrievances') }}</h6>
+                            <h6>{{ __('label.responsivenessGrievances') }} <span class="redtxt">*</span></h6>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio"
                                     wire:model.lazy='responsiveness_grievances' value="Excellent"
@@ -180,7 +180,7 @@
                             @enderror
                         </div>
                         <div class="qset">
-                            <h6>{{ __('label.proactiveStepIssues') }}</h6>
+                            <h6>{{ __('label.proactiveStepIssues') }} <span class="redtxt">*</span></label></h6>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio"
                                     wire:model.lazy='proactive_step_issues' value="Always"
@@ -220,7 +220,8 @@
 
                         </div>
                         <div class="qset">
-                            <h6>{{ __('label.transparentActionAndDecisions') }}</h6>
+                            <h6>{{ __('label.transparentActionAndDecisions') }} <span class="redtxt">*</span></label>
+                            </h6>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='transparent_action_and_decision'
                                     value="Yes" type="radio" name="transparent_action_and_decision"
@@ -245,7 +246,7 @@
 
                         </div>
                         <div class="qset">
-                            <h6>{{ __('label.suggestions') }}</h6>
+                            <h6>{{ __('label.suggestions') }} (optional)</h6>
                             <div>
                                 <textarea class="form-control" wire:model.lazy='suggestions' name="suggestions" id="suggestions" rows="3"
                                     placeholder="{{ __('label.writeYourFeedback') }}"></textarea>
@@ -275,7 +276,7 @@
                     <div class="card-header">{{ __('label.developmentInfrastructure') }}</div>
                     <div class="p-0 card-body">
                         <div class="qset">
-                            <h6>{{ __('label.rateCurrentStatus') }}</h6>
+                            <h6>{{ __('label.rateCurrentStatus') }} <span class="redtxt">*</span></h6>
                             <div class="mb-2"><strong>{{ __('label.roadsAndPavements') }}</strong></div>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='roads_pavements' value="Excellent"
@@ -446,7 +447,7 @@
                             @enderror
                         </div>
                         <div class="qset">
-                            <h6>{{ __('label.sanitationWaterSupply') }}</h6>
+                            <h6>{{ __('label.sanitationWaterSupply') }} <span class="redtxt">*</span></h6>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='sanitation_water_supply_adequate'
                                     value="Yes" type="radio" name="sanitation_water_supply_adequate"
@@ -470,7 +471,7 @@
 
                         </div>
                         <div class="qset">
-                            <h6>{{ __('label.feelSafe') }}</h6>
+                            <h6>{{ __('label.feelSafe') }} <span class="redtxt">*</span></h6>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='feel_safe' value="Yes"
                                     type="radio" name="feel_safe" id="feel_safe_yes">
@@ -493,7 +494,7 @@
 
                         </div>
                         <div class="qset">
-                            <h6>{{ __('label.environmentallySustainable') }}</h6>
+                            <h6>{{ __('label.environmentallySustainable') }} <span class="redtxt">*</span></h6>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='environmentally_sustainable'
                                     value="Yes" type="radio" name="environmentally_sustainable"
@@ -540,7 +541,7 @@
                     <div class="card-header">{{ __('label.communityEngagement') }}</div>
                     <div class="p-0 card-body">
                         <div class="qset">
-                            <h6>{{ __('label.attendedMeetingDriveEvent') }}</h6>
+                            <h6>{{ __('label.attendedMeetingDriveEvent') }} <span class="redtxt">*</span></h6>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='attended_meeting_drive_event'
                                     value="Yes" type="radio" name="attended_meeting_drive_event"
@@ -564,7 +565,7 @@
 
                         </div>
                         <div class="qset">
-                            <h6>{{ __('label.opinionsConsideredDevPlans') }}</h6>
+                            <h6>{{ __('label.opinionsConsideredDevPlans') }} <span class="redtxt">*</span></h6>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='opinions_considered_dev_plans'
                                     value="Always" type="radio" name="opinions_considered_dev_plans"
@@ -604,7 +605,7 @@
 
                         </div>
                         <div class="qset">
-                            <h6>{{ __('label.overallCommunication') }}</h6>
+                            <h6>{{ __('label.overallCommunication') }} <span class="redtxt">*</span></h6>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='communication_citizens_municipality'
                                     value="Excellent" type="radio" name="communication_citizens_municipality"
@@ -665,25 +666,33 @@
                     <div class="p-0 card-body">
                         <div class="qset">
                             <h6>{{ __('label.mostCriticalIssues') }}</h6>
-                            {{-- ward? --}}
-                            </h6>
-                            {{-- <div class="mb-2 inputrow">
-                                <input type="text" class="form-control" id="feedback"
-                                    placeholder="Write your issue" wire:model.lazy='most_critical_issues'>
-                            </div> --}}
                             @foreach ($most_critical_issues as $key => $value)
+                                <small>{{ __('label.writeYourIssue') }} <span class="redtxt">*</span></small>
                                 <div class="mb-2 inputrow">
                                     <input type="text" class="form-control"
                                         name="most_critical_issues{{ $key }}"
                                         wire:model.lazy='most_critical_issues.{{ $key }}'
                                         placeholder="{{ __('label.writeYourIssue') }}" id="feedback">
                                 </div>
+                                @error('most_critical_issues.*')
+                                    <span class="text-danger">{{ $errors->first('most_critical_issues.' . $key) }}</span>
+                                @enderror
 
-                                {{-- {{ var_dump($errors) }} --}}
-                                @if ($errors->has('most_critical_issues.*'))
-                                    <span
-                                        class="text-danger">{{ $errors->first('most_critical_issues.' . $key) }}</span>
-                                @endif
+
+
+                                <div class="mb-2 inputrow">
+                                    <small>{{ __('label.uploadFile') }} (optional)</small>
+                                    <input class="form-control" wire:model.lazy='attach_file.{{ $key }}'
+                                        type="file" name="attach_file.{{ $key }}"
+                                        id="attach_file.{{ $key }}">
+                                </div>
+
+                                @error('attach_file.*')
+                                    <span class="text-danger">{{ $errors->first('attach_file.' . $key) }}</span>
+                                @enderror
+
+
+
 
 
                                 @if ($key > 0)
@@ -708,11 +717,9 @@
                             </div>
 
 
-
                         </div>
                         <div class="qset">
-                            <h6> {{ __('label.suggestionsAdditionalFeedback') }}
-                            </h6>
+                            <h6> {{ __('label.suggestionsAdditionalFeedback') }} (optional)</h6>
                             <div>
                                 <textarea class="form-control" name="additional_suggestions" id="additional_suggestions" rows="4"
                                     placeholder="{{ __('label.writeYourFeedback') }}" wire:model.lazy='additional_suggestions'></textarea>

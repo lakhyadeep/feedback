@@ -21,7 +21,8 @@ class Feedback extends Model
     protected $table = "feedbacks";
 
     protected $casts = [
-        'most_critical_issues' => 'json',
+        'most_critical_issues' => 'array',
+        'attach_file' => 'array'
     ];
 
     public function ward(): BelongsTo
