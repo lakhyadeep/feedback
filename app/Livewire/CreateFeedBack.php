@@ -6,10 +6,15 @@ use App\Models\Ward;
 use Livewire\Component;
 use App\Models\Feedback;
 use App\Rules\AlphaSpace;
+use Livewire\WithFileUploads;
+use Livewire\Attributes\Title;
 use Illuminate\Support\Facades\App;
 
+#[Title('Citizen Feedback')]
 class CreateFeedBack extends Component
 {
+
+    use WithFileUploads;
 
     public $most_critical_issues = [''];
     public $totalSteps = 5;
@@ -43,6 +48,8 @@ class CreateFeedBack extends Component
     public $opinions_considered_dev_plans;
     public $communication_citizens_municipality;
     public $additional_suggestions;
+    public $attach_file = [''];
+
 
     public function mount()
     {
@@ -53,7 +60,7 @@ class CreateFeedBack extends Component
     public function nextStep()
     {
         // validate
-        $this->validate($this->validationRules[$this->currentStep]);
+        //$this->validate($this->validationRules[$this->currentStep]);
 
         $this->currentStep++;
         if ($this->currentStep > $this->totalSteps) {
@@ -91,6 +98,7 @@ class CreateFeedBack extends Component
     }
 
 
+
     public function render()
     {
         return view('livewire.create-feed-back');
@@ -124,7 +132,7 @@ class CreateFeedBack extends Component
             'responsiveness_grievances' => ['required'],
             'proactive_step_issues' => ['required'],
             'transparent_action_and_decision' => ['required'],
-            'suggestions' => ['required'],
+            'suggestions' => ['nullable'],
         ],
 
         3 => [
@@ -147,22 +155,36 @@ class CreateFeedBack extends Component
 
         5 => [
             'most_critical_issues.*' => ['required'],
-            'additional_suggestions' => ['required'],
+            'additional_suggestions' => ['nullable'],
+            'attach_file.*' => ['nullable', 'mimes:jpg,jpeg,png', 'max:2048'],
         ]
-
     ];
 
 
     public function save()
     {
+        $issues = [];
+        $attach_files = [];
         $rules = collect($this->validationRules)->collapse()->toArray();
         //dd($rules);
         $validatedData = $this->validate($rules);
 
-        // foreach ($validatedData['most_critical_issues'] as $key => $value) {
-        //     $validatedData['most_critical_issues'][$key] = $value;
-        // }
-        //dd($validatedData);
+
+        foreach ($this->most_critical_issues as $criticalIssue) {
+            $issues[] = ['issue' => $criticalIssue];
+        }
+
+
+
+        foreach ($this->attach_file as $afile) {
+            if ($afile) {
+                $attach_files[] = ['file_name' => $afile->store('attachments')];
+            }
+        }
+
+        $validatedData['most_critical_issues'] = $issues;
+        $validatedData['attach_file'] = $attach_files;
+
         Feedback::create($validatedData);
         return redirect()->route('thankyou');
     }

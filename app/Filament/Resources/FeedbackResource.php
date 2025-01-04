@@ -4,12 +4,16 @@ namespace App\Filament\Resources;
 
 use Filament\Forms;
 use Filament\Tables;
+use Filament\Forms\Get;
 use App\Models\Feedback;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
 use Filament\Forms\Components\Section;
+use Filament\Forms\Components\Repeater;
 use Illuminate\Database\Eloquent\Model;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\FileUpload;
 use Filament\Tables\Filters\SelectFilter;
 use App\Filament\Resources\FeedbackResource\Pages;
 
@@ -70,18 +74,24 @@ class FeedbackResource extends Resource
                         Forms\Components\TextInput::make('attended_meeting_drive_event'),
                         Forms\Components\TextInput::make('opinions_considered_dev_plans'),
                         Forms\Components\TextInput::make('communication_citizens_municipality'),
-                        Forms\Components\RichEditor::make('most_critical_issues')
-                            ->formatStateUsing(function ($state) {
-                                $issues = $state;
-                                //dd($issues);
-                                $formattedIssues = "<ol>";
-                                foreach ($issues as $issue) {
-                                    $formattedIssues .= "<li>" . $issue . "</li>";
-                                }
-                                $formattedIssues .= "</ol>";
-                                return $formattedIssues;
-                            })
+
+                        Repeater::make("most_critical_issues")
+                            ->schema([
+                                TextInput::make('issue')
+                                    ->label('Issue') // Label for the text input
+                                    ->required(), // Make this field required
+                            ])
+                            ->minItems(1)
+                            ->maxItems(3)
+                            ->deletable(false)
                             ->columnSpanFull(),
+
+                        Repeater::make('attach_file')
+                            ->label("Uploads")
+                            ->schema([
+                                FileUpload::make('file_name')
+                                    ->label('Upload attachment')
+                            ]),
                         Forms\Components\Textarea::make('additional_suggestions')
                             ->columnSpanFull(),
                     ])
