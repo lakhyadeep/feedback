@@ -93,14 +93,14 @@
                         <div class="qset">
                             <h6>{{ __('label.accessibility') }} <span class="redtxt">*</span></label></h6>
                             <div class="form-check">
-                                <input class="form-check-input" wire:model.lazy='accessibility' value="Very Satisfied"
+                                <input class="form-check-input" wire:model.lazy='accessibility' value="5"
                                     type="radio" name="accessibility" id="accessibility_very_satisfied">
                                 <label class="form-check-label" for="accessibility_very_satisfied">
                                     {{ __('label.verySatisfied') }}
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" wire:model.lazy='accessibility' value="Satisfied"
+                                <input class="form-check-input" wire:model.lazy='accessibility' value="4"
                                     type="radio" name="accessibility" id="accessibility_satisfied" checked>
                                 <label class="form-check-label" for="accessibility_satisfied">
                                     {{ __('label.satisfied') }}
@@ -108,14 +108,14 @@
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" wire:model.lazy='accessibility' value="Neutral"
+                                <input class="form-check-input" wire:model.lazy='accessibility' value="3"
                                     type="radio" name="accessibility" id="accessibility_neutral">
                                 <label class="form-check-label" for="accessibility_neutral">
                                     {{ __('label.neutral') }}
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" wire:model.lazy='accessibility' value="Dissatisfied"
+                                <input class="form-check-input" wire:model.lazy='accessibility' value="2"
                                     type="radio" name="accessibility" id="accessibility_dissatisfied" checked>
                                 <label class="form-check-label" for="accessibility_dissatisfied">
                                     {{ __('label.dissatisfied') }}
@@ -124,7 +124,7 @@
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='accessibility'
                                     value="Very Dissatisfied" type="radio" name="accessibility"
-                                    id="accessibility_very_dissatisfied" value="Very Dissatisfied" checked>
+                                    id="accessibility_very_dissatisfied" value="1" checked>
                                 <label class="form-check-label" for="accessibility_very_dissatisfied">
                                     {{ __('label.veryDissatisfied') }}
                                 </label>
@@ -138,15 +138,15 @@
                             <h6>{{ __('label.responsivenessGrievances') }} <span class="redtxt">*</span></h6>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio"
-                                    wire:model.lazy='responsiveness_grievances' value="Excellent"
-                                    name="responsiveness" id="responsiveness_excellent">
+                                    wire:model.lazy='responsiveness_grievances' value="5" name="responsiveness"
+                                    id="responsiveness_excellent">
                                 <label class="form-check-label" for="responsiveness_excellent">
                                     {{ __('label.excellent') }}
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio"
-                                    wire:model.lazy='responsiveness_grievances' value="Good" name="responsiveness"
+                                    wire:model.lazy='responsiveness_grievances' value="4" name="responsiveness"
                                     id="responsiveness_good" checked>
                                 <label class="form-check-label" for="responsiveness_good">
                                     {{ __('label.good') }}
@@ -154,7 +154,7 @@
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio"
-                                    wire:model.lazy='responsiveness_grievances' value="Average" name="responsiveness"
+                                    wire:model.lazy='responsiveness_grievances' value="3" name="responsiveness"
                                     id="responsiveness_average">
                                 <label class="form-check-label" for="responsiveness_average">
                                     {{ __('label.average') }}
@@ -162,7 +162,7 @@
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio"
-                                    wire:model.lazy='responsiveness_grievances' value="Poor" name="responsiveness"
+                                    wire:model.lazy='responsiveness_grievances' value="2" name="responsiveness"
                                     id="responsiveness_poor" checked>
                                 <label class="form-check-label" for="responsiveness_poor">
                                     {{ __('label.poor') }}
@@ -170,8 +170,8 @@
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio"
-                                    wire:model.lazy='responsiveness_grievances' value="Very Poor"
-                                    name="responsiveness" id="responsiveness_very_poor" checked>
+                                    wire:model.lazy='responsiveness_grievances' value="1" name="responsiveness"
+                                    id="responsiveness_very_poor" checked>
                                 <label class="form-check-label" for="responsiveness_very_poor">
                                     {{ __('label.veryPoor') }}
                                 </label>
@@ -185,7 +185,7 @@
                             <h6>{{ __('label.proactiveStepIssues') }} <span class="redtxt">*</span></label></h6>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio"
-                                    wire:model.lazy='proactive_step_issues' value="Always"
+                                    wire:model.lazy='proactive_step_issues' value="4"
                                     name="proactive_step_issues" id="proactive_step_issues_always">
                                 <label class="form-check-label" for="proactive_step_issues_always">
                                     {{ __('label.always') }}
@@ -193,7 +193,7 @@
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio"
-                                    wire:model.lazy='proactive_step_issues' value="Sometimes"
+                                    wire:model.lazy='proactive_step_issues' value="3"
                                     name="proactive_step_issues" id="proactive_step_issues_sometimes" checked>
                                 <label class="form-check-label" for="proactive_step_issues_sometimes">
                                     {{ __('label.sometimes') }}
@@ -201,7 +201,7 @@
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='proactive_step_issues'
-                                    value="Rarely" type="radio" name="proactive_step_issues"
+                                    value="2" type="radio" name="proactive_step_issues"
                                     id="proactive_step_issues_rarely">
                                 <label class="form-check-label" for="proactive_step_issues_rarely">
                                     {{ __('label.rarely') }}
@@ -209,7 +209,7 @@
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='proactive_step_issues'
-                                    value="Never" type="radio" name="proactive_step_issues"
+                                    value="1" type="radio" name="proactive_step_issues"
                                     id="proactive_step_issues_never" checked>
                                 <label class="form-check-label" for="proactive_step_issues_never">
                                     {{ __('label.never') }}
@@ -226,7 +226,7 @@
                             </h6>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='transparent_action_and_decision'
-                                    value="Yes" type="radio" name="transparent_action_and_decision"
+                                    value="1" type="radio" name="transparent_action_and_decision"
                                     id="transparent_action_and_decision_yes">
                                 <label class="form-check-label" for="transparent_action_and_decision_yes">
                                     {{ __('label.yes') }}
@@ -234,7 +234,7 @@
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='transparent_action_and_decision'
-                                    value="No" type="radio" name="transparent_action_and_decision"
+                                    value="0" type="radio" name="transparent_action_and_decision"
                                     id="transparent_action_and_decision_no" checked>
                                 <label class="form-check-label" for="transparent_action_and_decision_no">
                                     No
@@ -281,28 +281,28 @@
                             <h6>{{ __('label.rateCurrentStatus') }} <span class="redtxt">*</span></h6>
                             <div class="mb-2"><strong>{{ __('label.roadsAndPavements') }}</strong></div>
                             <div class="form-check">
-                                <input class="form-check-input" wire:model.lazy='roads_pavements' value="Excellent"
+                                <input class="form-check-input" wire:model.lazy='roads_pavements' value="4"
                                     type="radio" name="roads_pavements" id="roads_pavements_excellent">
                                 <label class="form-check-label" for="roads_pavements_excellent">
                                     {{ __('label.excellent') }}
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" wire:model.lazy='roads_pavements' value="Good"
+                                <input class="form-check-input" wire:model.lazy='roads_pavements' value="3"
                                     type="radio" name="roads_pavements" id="roads_pavements_good" checked>
                                 <label class="form-check-label" for="roads_pavements_good">
                                     {{ __('label.good') }}
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" wire:model.lazy='roads_pavements' value="Average"
+                                <input class="form-check-input" wire:model.lazy='roads_pavements' value="2"
                                     type="radio" name="roads_pavements" id="roads_pavements_average">
                                 <label class="form-check-label" for="roads_pavements_average">
                                     {{ __('label.average') }}
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" wire:model.lazy='roads_pavements' value="Poor"
+                                <input class="form-check-input" wire:model.lazy='roads_pavements' value="1"
                                     type="radio" name="roads_pavements" id="roads_pavements_poor" checked>
                                 <label class="form-check-label" for="roads_pavements_poor">
                                     {{ __('label.poor') }}
@@ -315,28 +315,28 @@
 
                             <div class="mt-4 mb-2"><strong>{{ __('label.drainageSystem') }}</strong></div>
                             <div class="form-check">
-                                <input class="form-check-input" wire:model.lazy='drainage_system' value="Excellent"
+                                <input class="form-check-input" wire:model.lazy='drainage_system' value="4"
                                     type="radio" name="drainage_system" id="drainage_system_excellent">
                                 <label class="form-check-label" for="drainage_system_excellent">
                                     {{ __('label.excellent') }}
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" wire:model.lazy='drainage_system' value="Good"
+                                <input class="form-check-input" wire:model.lazy='drainage_system' value="3"
                                     type="radio" name="drainage_system" id="drainage_system_good" checked>
                                 <label class="form-check-label" for="drainage_system_good">
                                     {{ __('label.good') }}
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" wire:model.lazy='drainage_system' value="Average"
+                                <input class="form-check-input" wire:model.lazy='drainage_system' value="2"
                                     type="radio" name="drainage_system" id="drainage_system_average">
                                 <label class="form-check-label" for="drainage_system_average">
                                     {{ __('label.average') }}
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" wire:model.lazy='drainage_system' value="Poor"
+                                <input class="form-check-input" wire:model.lazy='drainage_system' value="1"
                                     type="radio" name="drainage_system" id="drainage_system_poor" checked>
                                 <label class="form-check-label" for="drainage_system_poor">
                                     {{ __('label.poor') }}
@@ -348,28 +348,28 @@
 
                             <div class="mt-4 mb-2"><strong>{{ __('label.wasteManagement') }}</strong></div>
                             <div class="form-check">
-                                <input class="form-check-input" wire:model.lazy='waste_management' value="Excellent"
+                                <input class="form-check-input" wire:model.lazy='waste_management' value="4"
                                     type="radio" name="waste_management" id="waste_management_excellent">
                                 <label class="form-check-label" for="waste_management_excellent">
                                     {{ __('label.excellent') }}
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" wire:model.lazy='waste_management' value="Good"
+                                <input class="form-check-input" wire:model.lazy='waste_management' value="3"
                                     type="radio" name="waste_management" id="waste_management_good" checked>
                                 <label class="form-check-label" for="waste_management_good">
                                     {{ __('label.good') }}
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" wire:model.lazy='waste_management' value="Average"
+                                <input class="form-check-input" wire:model.lazy='waste_management' value="2"
                                     type="radio" name="waste_management" id="waste_management_average">
                                 <label class="form-check-label" for="waste_management_average">
                                     {{ __('label.average') }}
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" wire:model.lazy='waste_management' value="Poor"
+                                <input class="form-check-input" wire:model.lazy='waste_management' value="1"
                                     type="radio" name="waste_management" id="waste_management_poor" checked>
                                 <label class="form-check-label" for="waste_management_poor">
                                     {{ __('label.poor') }}
@@ -381,28 +381,28 @@
 
                             <div class="mt-4 mb-2"><strong>{{ __('label.streetLighting') }}</strong></div>
                             <div class="form-check">
-                                <input class="form-check-input" wire:model.lazy='street_lighting' value="Excellent"
+                                <input class="form-check-input" wire:model.lazy='street_lighting' value="4"
                                     type="radio" name="street_lighting" id="street_lighting_excellent">
                                 <label class="form-check-label" for="street_lighting_excellent">
                                     {{ __('label.excellent') }}
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" wire:model.lazy='street_lighting' value="Good"
+                                <input class="form-check-input" wire:model.lazy='street_lighting' value="3"
                                     type="radio" name="street_lighting" id="street_lighting_good" checked>
                                 <label class="form-check-label" for="street_lighting_good">
                                     {{ __('label.good') }}
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" wire:model.lazy='street_lighting' value="Average"
+                                <input class="form-check-input" wire:model.lazy='street_lighting' value="2"
                                     type="radio" name="street_lighting" id="street_lighting_average">
                                 <label class="form-check-label" for="street_lighting_average">
                                     {{ __('label.average') }}
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" wire:model.lazy='street_lighting' value="Poor"
+                                <input class="form-check-input" wire:model.lazy='street_lighting' value="1"
                                     type="radio" name="street_lighting" id="street_lighting_poor" checked>
                                 <label class="form-check-label" for="street_lighting_poor">
                                     {{ __('label.poor') }}
@@ -415,29 +415,28 @@
 
                             <div class="mt-4 mb-2"><strong>{{ __('label.parksPublicSpaces') }}</strong></div>
                             <div class="form-check">
-                                <input class="form-check-input" wire:model.lazy='parks_public_spaces'
-                                    value="Excellent" type="radio" name="parks_public_spaces"
-                                    id="parks_public_spaces_excellent">
+                                <input class="form-check-input" wire:model.lazy='parks_public_spaces' value="4"
+                                    type="radio" name="parks_public_spaces" id="parks_public_spaces_excellent">
                                 <label class="form-check-label" for="parks_public_spaces_excellent">
                                     {{ __('label.excellent') }}
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" wire:model.lazy='parks_public_spaces' value="Good"
+                                <input class="form-check-input" wire:model.lazy='parks_public_spaces' value="3"
                                     type="radio" name="parks_public_spaces" id="parks_public_spaces_good" checked>
                                 <label class="form-check-label" for="parks_public_spaces_good">
                                     {{ __('label.good') }}
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" wire:model.lazy='parks_public_spaces' value="Average"
+                                <input class="form-check-input" wire:model.lazy='parks_public_spaces' value="2"
                                     type="radio" name="parks_public_spaces" id="parks_public_spaces_average">
                                 <label class="form-check-label" for="parks_public_spaces_average">
                                     {{ __('label.average') }}
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" wire:model.lazy='parks_public_spaces' value="Poor"
+                                <input class="form-check-input" wire:model.lazy='parks_public_spaces' value="1"
                                     type="radio" name="parks_public_spaces" id="parks_public_spaces_poor" checked>
                                 <label class="form-check-label" for="parks_public_spaces_poor">
                                     {{ __('label.poor') }}
@@ -452,7 +451,7 @@
                             <h6>{{ __('label.sanitationWaterSupply') }} <span class="redtxt">*</span></h6>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='sanitation_water_supply_adequate'
-                                    value="Yes" type="radio" name="sanitation_water_supply_adequate"
+                                    value="1" type="radio" name="sanitation_water_supply_adequate"
                                     id="sanitation_water_supply_adequate_yes">
                                 <label class="form-check-label" for="sanitation_water_supply_adequate_yes">
                                     {{ __('label.yes') }}
@@ -460,7 +459,7 @@
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='sanitation_water_supply_adequate'
-                                    value="No" type="radio" name="sanitation_water_supply_adequate"
+                                    value="0" type="radio" name="sanitation_water_supply_adequate"
                                     id="sanitation_water_supply_adequate_no" checked>
                                 <label class="form-check-label" for="sanitation_water_supply_adequate_no">
                                     {{ __('label.no') }}
@@ -475,14 +474,14 @@
                         <div class="qset">
                             <h6>{{ __('label.feelSafe') }} <span class="redtxt">*</span></h6>
                             <div class="form-check">
-                                <input class="form-check-input" wire:model.lazy='feel_safe' value="Yes"
+                                <input class="form-check-input" wire:model.lazy='feel_safe' value="1"
                                     type="radio" name="feel_safe" id="feel_safe_yes">
                                 <label class="form-check-label" for="feel_safe_yes">
                                     {{ __('label.yes') }}
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" wire:model.lazy='feel_safe' value="No"
+                                <input class="form-check-input" wire:model.lazy='feel_safe' value="0"
                                     type="radio" name="feel_safe" id="feel_safe_no" checked>
                                 <label class="form-check-label" for="feel_safe_no">
                                     {{ __('label.no') }}
@@ -499,7 +498,7 @@
                             <h6>{{ __('label.environmentallySustainable') }} <span class="redtxt">*</span></h6>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='environmentally_sustainable'
-                                    value="Yes" type="radio" name="environmentally_sustainable"
+                                    value="1" type="radio" name="environmentally_sustainable"
                                     id="environmentally_sustainable_yes">
                                 <label class="form-check-label" for="environmentally_sustainable_yes">
                                     {{ __('label.yes') }}
@@ -507,7 +506,7 @@
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='environmentally_sustainable'
-                                    value="No" type="radio" name="environmentally_sustainable"
+                                    value="0" type="radio" name="environmentally_sustainable"
                                     id="environmentally_sustainable_no" checked>
                                 <label class="form-check-label" for="environmentally_sustainable_no">
                                     {{ __('label.no') }}
@@ -546,7 +545,7 @@
                             <h6>{{ __('label.attendedMeetingDriveEvent') }} <span class="redtxt">*</span></h6>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='attended_meeting_drive_event'
-                                    value="Yes" type="radio" name="attended_meeting_drive_event"
+                                    value="1" type="radio" name="attended_meeting_drive_event"
                                     id="attended_meeting_drive_event_yes">
                                 <label class="form-check-label" for="attended_meeting_drive_event_yes">
                                     {{ __('label.yes') }}
@@ -554,7 +553,7 @@
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='attended_meeting_drive_event'
-                                    value="No" type="radio" name="attended_meeting_drive_event"
+                                    value="0" type="radio" name="attended_meeting_drive_event"
                                     id="attended_meeting_drive_event_no" checked>
                                 <label class="form-check-label" for="attended_meeting_drive_event_no">
                                     {{ __('label.no') }}
@@ -570,7 +569,7 @@
                             <h6>{{ __('label.opinionsConsideredDevPlans') }} <span class="redtxt">*</span></h6>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='opinions_considered_dev_plans'
-                                    value="Always" type="radio" name="opinions_considered_dev_plans"
+                                    value="4" type="radio" name="opinions_considered_dev_plans"
                                     id="opinions_considered_dev_plans_always">
                                 <label class="form-check-label" for="opinions_considered_dev_plans_always">
                                     {{ __('label.always') }}
@@ -578,7 +577,7 @@
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='opinions_considered_dev_plans'
-                                    value="Sometimes" type="radio" name="opinions_considered_dev_plans"
+                                    value="3" type="radio" name="opinions_considered_dev_plans"
                                     id="opinions_considered_dev_plans_sometimes" checked>
                                 <label class="form-check-label" for="opinions_considered_dev_plans_sometimes">
                                     {{ __('label.sometimes') }}
@@ -586,7 +585,7 @@
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='opinions_considered_dev_plans'
-                                    value="Rarely" type="radio" name="opinions_considered_dev_plans"
+                                    value="2" type="radio" name="opinions_considered_dev_plans"
                                     id="opinions_considered_dev_plans_rarely">
                                 <label class="form-check-label" for="opinions_considered_dev_plans_rarely">
                                     {{ __('label.rarely') }}
@@ -594,7 +593,7 @@
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='opinions_considered_dev_plans'
-                                    value="Never" type="radio" name="opinions_considered_dev_plans"
+                                    value="1" type="radio" name="opinions_considered_dev_plans"
                                     id="opinions_considered_dev_plans_never" checked>
                                 <label class="form-check-label" for="opinions_considered_dev_plans_never">
                                     {{ __('label.never') }}
@@ -610,7 +609,7 @@
                             <h6>{{ __('label.overallCommunication') }} <span class="redtxt">*</span></h6>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='communication_citizens_municipality'
-                                    value="Excellent" type="radio" name="communication_citizens_municipality"
+                                    value="4" type="radio" name="communication_citizens_municipality"
                                     id="communication_citizens_municipality_excellent">
                                 <label class="form-check-label" for="communication_citizens_municipality_excellent">
                                     {{ __('label.excellent') }}
@@ -618,7 +617,7 @@
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='communication_citizens_municipality'
-                                    value="Good" type="radio" name="communication_citizens_municipality"
+                                    value="3" type="radio" name="communication_citizens_municipality"
                                     id="communication_citizens_municipality_good" checked>
                                 <label class="form-check-label" for="communication_citizens_municipality_good">
                                     {{ __('label.good') }}
@@ -626,7 +625,7 @@
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='communication_citizens_municipality'
-                                    value="Average" type="radio" name="communication_citizens_municipality"
+                                    value="2" type="radio" name="communication_citizens_municipality"
                                     id="communication_citizens_municipality_average">
                                 <label class="form-check-label" for="communication_citizens_municipality_average">
                                     {{ __('label.average') }}
@@ -634,7 +633,7 @@
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" wire:model.lazy='communication_citizens_municipality'
-                                    value="Poor" type="radio" name="communication_citizens_municipality"
+                                    value="1" type="radio" name="communication_citizens_municipality"
                                     id="communication_citizens_municipality_poor" checked>
                                 <label class="form-check-label" for="communication_citizens_municipality_poor">
                                     {{ __('label.poor') }}

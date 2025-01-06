@@ -2,8 +2,11 @@
 
 namespace App\Filament\Pages;
 
+use App\Filament\Widgets\AccessibilityChart;
 use App\Models\Ward;
 use Filament\Forms\Form;
+use App\Filament\Widgets\TestChart;
+use App\Filament\Widgets\Test1Chart;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\DatePicker;
@@ -11,6 +14,7 @@ use App\Filament\Widgets\PerformanceChart;
 use App\Filament\Widgets\InfrastructureChart;
 use Filament\Pages\Dashboard as BaseDashboard;
 use App\Filament\Widgets\CommunityEngagementChart;
+use App\Filament\Widgets\GrievanceChart;
 use Filament\Pages\Dashboard\Concerns\HasFiltersForm;
 
 class Dashboard extends BaseDashboard
@@ -26,6 +30,7 @@ class Dashboard extends BaseDashboard
                 Section::make()
                     ->schema([
                         Select::make('ward_id')
+                            ->searchable()
                             ->label('Ward Number')
                             ->options(Ward::all()->pluck('title', 'id'))
                             ->required(),
@@ -43,9 +48,8 @@ class Dashboard extends BaseDashboard
     public function getWidgets(): array
     {
         return [
-            PerformanceChart::class,
-            InfrastructureChart::class,
-            CommunityEngagementChart::class,
+            AccessibilityChart::class,
+            GrievanceChart::class
         ];
     }
 }
