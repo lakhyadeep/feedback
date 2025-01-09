@@ -48,6 +48,7 @@ class FeedbackResource extends Resource
                             })
                             ->required(),
                         Forms\Components\Select::make('ward_id')
+                            ->label("Ward No")
                             ->relationship('ward', 'title')
                             ->required(),
                         Forms\Components\TextInput::make('name')
@@ -57,25 +58,41 @@ class FeedbackResource extends Resource
                         Forms\Components\TextInput::make('phone_no')
                             ->tel()
                             ->required(),
-                        Forms\Components\TextInput::make('accessibility'),
-                        Forms\Components\TextInput::make('responsiveness_grievances'),
-                        Forms\Components\TextInput::make('proactive_step_issues'),
-                        Forms\Components\TextInput::make('transparent_action_and_decision'),
+                        Forms\Components\TextInput::make('accessibility')
+                            ->label('How satisfied are you with the accessibility of your Ward Commissioner?'),
+                        Forms\Components\TextInput::make('responsiveness_grievances')
+                            ->label("How do you rate the responsiveness of the Ward Commissioner to citizen grievances?"),
+
+                        Forms\Components\TextInput::make('proactive_step_issues')
+                            ->label("Has the Ward Commissioner taken proactive steps to address key issues in your ward?"),
+                        Forms\Components\TextInput::make('transparent_action_and_decision')
+                            ->label("Do you feel the Ward Commissioner is transparent in their actions and decisions?"),
                         Forms\Components\Textarea::make('suggestions')
+                            ->label("Please share any suggestions or feedback for your Ward Commissioner:")
                             ->columnSpanFull(),
-                        Forms\Components\TextInput::make('roads_pavements'),
-                        Forms\Components\TextInput::make('drainage_system'),
+                        Forms\Components\TextInput::make('roads_pavements')
+                            ->label("Roads and Pavements"),
+                        Forms\Components\TextInput::make('drainage_system')
+                            ->label("Drainage System"),
                         Forms\Components\TextInput::make('waste_management'),
                         Forms\Components\TextInput::make('street_lighting'),
-                        Forms\Components\TextInput::make('parks_public_spaces'),
-                        Forms\Components\TextInput::make('sanitation_water_supply_adequate'),
-                        Forms\Components\TextInput::make('feel_safe'),
-                        Forms\Components\TextInput::make('environmentally_sustainable'),
-                        Forms\Components\TextInput::make('attended_meeting_drive_event'),
-                        Forms\Components\TextInput::make('opinions_considered_dev_plans'),
-                        Forms\Components\TextInput::make('communication_citizens_municipality'),
+                        Forms\Components\TextInput::make('parks_public_spaces')
+                            ->label("Parks and Public Spaces"),
+                        Forms\Components\TextInput::make('sanitation_water_supply_adequate')
+                            ->label("Are sanitation and water supply services adequate in your ward?"),
+                        Forms\Components\TextInput::make('feel_safe')
+                            ->label("Do you feel safe in your ward (e.g., security, street lighting)?"),
+                        Forms\Components\TextInput::make('environmentally_sustainable')
+                            ->label("Do you think the ward is environmentally sustainable (e.g., green spaces, waste segregation)?"),
+                        Forms\Components\TextInput::make('attended_meeting_drive_event')
+                            ->label("Have you attended any meetings, drives, or events organized by the Ward Commissioner?"),
+                        Forms\Components\TextInput::make('opinions_considered_dev_plans')
+                            ->label("Do you think citizens’ opinions are considered in the ward’s development plans?"),
+                        Forms\Components\TextInput::make('communication_citizens_municipality')
+                            ->label("How would you rate overall communication between citizens and the municipality?"),
 
                         Repeater::make("most_critical_issues")
+                            ->label("What are the three most critical issues you feel need immediate attention in your ward?")
                             ->schema([
                                 TextInput::make('issue')
                                     ->label('Issue') // Label for the text input
@@ -93,6 +110,7 @@ class FeedbackResource extends Resource
                                     ->label('Upload attachment')
                             ]),
                         Forms\Components\Textarea::make('additional_suggestions')
+                            ->label("Any additional feedback or suggestions for the Ward Commissioner or Municipality")
                             ->columnSpanFull(),
                     ])
                     ->columns(2),
