@@ -1,26 +1,24 @@
 <?php
 
-namespace App\Filament\Widgets\Performance;
+namespace App\Filament\Widgets\Community;
 
-use App\Models\Feedback;
 use Carbon\Carbon;
+use App\Models\Feedback;
 use Flowframe\Trend\Trend;
 use Flowframe\Trend\TrendValue;
 use Filament\Widgets\ChartWidget;
 use Filament\Widgets\Concerns\InteractsWithPageFilters;
 
-class AccessibilityChart extends ChartWidget
+class OpinionChart extends ChartWidget
 {
-
     use InteractsWithPageFilters;
 
-    protected static ?string $heading = 'Performance of WC';
+    protected static ?string $heading = 'Community Engagement';
     protected static ?string $pollingInterval = null;
 
 
     protected function getData(): array
     {
-
         $data = [];
         $startDate = $this->filters['start_date'] . ' 00:00:00' ?? now()->startOfMonth();
         $endDate = $this->filters['end_date'] . ' 23:59:59' ?? now()->endOfDay();
@@ -32,12 +30,11 @@ class AccessibilityChart extends ChartWidget
                 end: Carbon::parse($endDate),
             )
             ->perDay()
-            ->average('accessibility');
-
+            ->average('opinions_considered_dev_plans');
         return [
             'datasets' => [
                 [
-                    'label' => 'Accessibility',
+                    'label' => 'Citizen opinion considered',
                     'data' => $data->map(fn(TrendValue $value) => $value->aggregate),
                     'backgroundColor' => $data->map(function (TrendValue $value) {
                         if ($value->aggregate > 2.5)
@@ -52,8 +49,6 @@ class AccessibilityChart extends ChartWidget
             ],
 
             'labels' => $data->map(fn(TrendValue $value) => $value->date),
-
-
 
         ];
     }
@@ -74,12 +69,12 @@ class AccessibilityChart extends ChartWidget
             'plugins' => [
                 'title' => [
                     'display' => true,
-                    'text' => "Accessibility of WC",
+                    'text' => "Citizen opinion considered",
                     'position' => "top"
                 ],
                 'legend' => [
                     'display' => false,
-                ]
+                ],
             ],
             'scales' => [
                 'y' => [

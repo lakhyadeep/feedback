@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Filament\Widgets\Performance;
+namespace App\Filament\Widgets\Development;
 
 use App\Models\Feedback;
 use Filament\Widgets\ChartWidget;
 use Filament\Widgets\Concerns\InteractsWithPageFilters;
 
-class TransparentChart extends ChartWidget
+class SafeChart extends ChartWidget
 {
     use InteractsWithPageFilters;
 
-    protected static ?string $heading = 'Performance of WC';
+    protected static ?string $heading = 'Development & Infrastructure';
     protected static ?string $pollingInterval = null;
     protected static ?string $maxHeight = '210px';
 
@@ -22,12 +22,12 @@ class TransparentChart extends ChartWidget
         $ward_id = $this->filters['ward_id'];
 
 
-        $yesPercentage = Feedback::calculatePercentage('transparent_action_and_decision', 1, $ward_id, ['start' => $startDate, 'end' => $endDate]);
-        $noPercentage = Feedback::calculatePercentage('transparent_action_and_decision', 0, $ward_id, ['start' => $startDate, 'end' => $endDate]);
+        $yesPercentage = Feedback::calculatePercentage('feel_safe', 1, $ward_id, ['start' => $startDate, 'end' => $endDate]);
+        $noPercentage = Feedback::calculatePercentage('feel_safe', 0, $ward_id, ['start' => $startDate, 'end' => $endDate]);
         return [
             'datasets' => [
                 [
-                    'label' => 'Transparent in actions and decisions',
+                    'label' => 'Safety & Security',
                     'data' => [$yesPercentage, $noPercentage],
                     'backgroundColor' => ['green', 'red'],
                     'hoverOffset' => 4
@@ -55,7 +55,7 @@ class TransparentChart extends ChartWidget
             'plugins' => [
                 'title' => [
                     'display' => true,
-                    'text' => "Transparent in actions and decisions"
+                    'text' => "Safety & Security"
                 ],
                 'legend' => [
                     'display' => false,

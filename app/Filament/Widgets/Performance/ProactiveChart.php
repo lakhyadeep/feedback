@@ -13,7 +13,7 @@ class ProactiveChart extends ChartWidget
 {
     use InteractsWithPageFilters;
 
-    protected static ?string $heading = 'Proactive steps to address key Issues';
+    protected static ?string $heading = 'Performance of WC';
     protected static ?string $pollingInterval = null;
 
 
@@ -67,9 +67,13 @@ class ProactiveChart extends ChartWidget
                 'easing' => 'easeInOutSine',
             ],
             'plugins' => [
+                'title' => [
+                    'display' => true,
+                    'text' => "Proactive steps to address key Issues",
+                    'position' => "top"
+                ],
                 'legend' => [
                     'display' => false,
-                    'align' => 'start',
                 ],
             ],
             'scales' => [

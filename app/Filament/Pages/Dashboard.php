@@ -2,6 +2,17 @@
 
 namespace App\Filament\Pages;
 
+use App\Filament\Widgets\Community\CommunicationChart;
+use App\Filament\Widgets\Community\MeetingChart;
+use App\Filament\Widgets\Community\OpinionChart;
+use App\Filament\Widgets\Development\DrainageChart;
+use App\Filament\Widgets\Development\EnviromentChart;
+use App\Filament\Widgets\Development\ParkChart;
+use App\Filament\Widgets\Development\RoadChart;
+use App\Filament\Widgets\Development\SafeChart;
+use App\Filament\Widgets\Development\StreetLightChart;
+use App\Filament\Widgets\Development\WasteChart;
+use App\Filament\Widgets\Development\WaterSupplyChart;
 use App\Models\Ward;
 use Filament\Forms\Form;
 use Filament\Forms\Components\Select;
@@ -30,6 +41,7 @@ class Dashboard extends BaseDashboard
                             ->searchable()
                             ->label('Ward Number')
                             ->options(Ward::all()->pluck('title', 'id'))
+                            ->default('1')
                             ->required(),
 
                         DatePicker::make('start_date')
@@ -49,10 +61,27 @@ class Dashboard extends BaseDashboard
     public function getWidgets(): array
     {
         return [
+
+            ///Performance
             AccessibilityChart::class,
             GrievanceChart::class,
             ProactiveChart::class,
-            TransparentChart::class
+            TransparentChart::class,
+            /////Devlopment
+            RoadChart::class,
+            DrainageChart::class,
+            WasteChart::class,
+            StreetLightChart::class,
+            ParkChart::class,
+            WaterSupplyChart::class,
+            SafeChart::class,
+            EnviromentChart::class,
+            ///Community
+            MeetingChart::class,
+            OpinionChart::class,
+            CommunicationChart::class
+
+
         ];
     }
 }

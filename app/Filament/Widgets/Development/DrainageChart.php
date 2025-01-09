@@ -1,22 +1,20 @@
 <?php
 
-namespace App\Filament\Widgets\Performance;
+namespace App\Filament\Widgets\Development;
 
-use App\Models\Feedback;
 use Carbon\Carbon;
+use App\Models\Feedback;
 use Flowframe\Trend\Trend;
 use Flowframe\Trend\TrendValue;
 use Filament\Widgets\ChartWidget;
 use Filament\Widgets\Concerns\InteractsWithPageFilters;
 
-class AccessibilityChart extends ChartWidget
+class DrainageChart extends ChartWidget
 {
-
     use InteractsWithPageFilters;
 
-    protected static ?string $heading = 'Performance of WC';
+    protected static ?string $heading = 'Development & Infrastructure';
     protected static ?string $pollingInterval = null;
-
 
     protected function getData(): array
     {
@@ -32,12 +30,12 @@ class AccessibilityChart extends ChartWidget
                 end: Carbon::parse($endDate),
             )
             ->perDay()
-            ->average('accessibility');
+            ->average('drainage_system');
 
         return [
             'datasets' => [
                 [
-                    'label' => 'Accessibility',
+                    'label' => 'Drainage System',
                     'data' => $data->map(fn(TrendValue $value) => $value->aggregate),
                     'backgroundColor' => $data->map(function (TrendValue $value) {
                         if ($value->aggregate > 2.5)
@@ -74,7 +72,7 @@ class AccessibilityChart extends ChartWidget
             'plugins' => [
                 'title' => [
                     'display' => true,
-                    'text' => "Accessibility of WC",
+                    'text' => "Drainage System",
                     'position' => "top"
                 ],
                 'legend' => [

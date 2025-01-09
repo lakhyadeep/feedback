@@ -13,7 +13,7 @@ class GrievanceChart extends ChartWidget
 {
     use InteractsWithPageFilters;
 
-    protected static ?string $heading = 'Responsiveness of WC to Grievances';
+    protected static ?string $heading = 'Performance of WC';
     protected static ?string $pollingInterval = null;
 
 
@@ -67,9 +67,13 @@ class GrievanceChart extends ChartWidget
                 'easing' => 'easeInOutSine',
             ],
             'plugins' => [
+                'title' => [
+                    'display' => true,
+                    'text' => "Responsiveness of WC to Grievances",
+                    'position' => "top"
+                ],
                 'legend' => [
                     'display' => false,
-                    'align' => 'start',
                 ],
             ],
             'scales' => [

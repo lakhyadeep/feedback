@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Filament\Widgets\Performance;
+namespace App\Filament\Widgets\Community;
 
 use App\Models\Feedback;
 use Filament\Widgets\ChartWidget;
 use Filament\Widgets\Concerns\InteractsWithPageFilters;
 
-class TransparentChart extends ChartWidget
+class MeetingChart extends ChartWidget
 {
     use InteractsWithPageFilters;
 
-    protected static ?string $heading = 'Performance of WC';
+    protected static ?string $heading = 'Community Engagement';
     protected static ?string $pollingInterval = null;
     protected static ?string $maxHeight = '210px';
 
@@ -22,12 +22,12 @@ class TransparentChart extends ChartWidget
         $ward_id = $this->filters['ward_id'];
 
 
-        $yesPercentage = Feedback::calculatePercentage('transparent_action_and_decision', 1, $ward_id, ['start' => $startDate, 'end' => $endDate]);
-        $noPercentage = Feedback::calculatePercentage('transparent_action_and_decision', 0, $ward_id, ['start' => $startDate, 'end' => $endDate]);
+        $yesPercentage = Feedback::calculatePercentage('attended_meeting_drive_event', 1, $ward_id, ['start' => $startDate, 'end' => $endDate]);
+        $noPercentage = Feedback::calculatePercentage('attended_meeting_drive_event', 0, $ward_id, ['start' => $startDate, 'end' => $endDate]);
         return [
             'datasets' => [
                 [
-                    'label' => 'Transparent in actions and decisions',
+                    'label' => 'Organized meetings,drives,events',
                     'data' => [$yesPercentage, $noPercentage],
                     'backgroundColor' => ['green', 'red'],
                     'hoverOffset' => 4
@@ -55,7 +55,7 @@ class TransparentChart extends ChartWidget
             'plugins' => [
                 'title' => [
                     'display' => true,
-                    'text' => "Transparent in actions and decisions"
+                    'text' => "Organized meetings,drives,events"
                 ],
                 'legend' => [
                     'display' => false,
