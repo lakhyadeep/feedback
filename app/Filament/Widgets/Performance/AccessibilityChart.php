@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Widgets;
+namespace App\Filament\Widgets\Performance;
 
 use App\Models\Feedback;
 use Carbon\Carbon;
@@ -21,11 +21,11 @@ class AccessibilityChart extends ChartWidget
     protected function getData(): array
     {
 
+        $data = [];
         $startDate = $this->filters['start_date'] . ' 00:00:00' ?? now()->startOfMonth();
         $endDate = $this->filters['end_date'] . ' 23:59:59' ?? now()->endOfDay();
         $ward_id = $this->filters['ward_id'];
 
-        // $data = Trend::query(Feedback::where('ward_id', $ward_id)->whereBetween('created_at', [$startDate . ' 00:00:00', $endDate . ' 23:59:59']))
         $data = Trend::query(Feedback::where('ward_id', $ward_id))
             ->between(
                 start: Carbon::parse($startDate),
@@ -33,6 +33,7 @@ class AccessibilityChart extends ChartWidget
             )
             ->perDay()
             ->average('accessibility');
+
         return [
             'datasets' => [
                 [
@@ -51,6 +52,8 @@ class AccessibilityChart extends ChartWidget
             ],
 
             'labels' => $data->map(fn(TrendValue $value) => $value->date),
+
+
 
         ];
     }

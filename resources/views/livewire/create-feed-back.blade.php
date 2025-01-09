@@ -122,9 +122,9 @@
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" wire:model.lazy='accessibility'
-                                    value="Very Dissatisfied" type="radio" name="accessibility"
-                                    id="accessibility_very_dissatisfied" value="1" checked>
+                                <input class="form-check-input" wire:model.lazy='accessibility' value="1"
+                                    type="radio" name="accessibility" id="accessibility_very_dissatisfied"
+                                    value="1" checked>
                                 <label class="form-check-label" for="accessibility_very_dissatisfied">
                                     {{ __('label.veryDissatisfied') }}
                                 </label>

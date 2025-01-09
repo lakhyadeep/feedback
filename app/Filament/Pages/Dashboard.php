@@ -2,19 +2,16 @@
 
 namespace App\Filament\Pages;
 
-use App\Filament\Widgets\AccessibilityChart;
 use App\Models\Ward;
 use Filament\Forms\Form;
-use App\Filament\Widgets\TestChart;
-use App\Filament\Widgets\Test1Chart;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Section;
+use App\Filament\Widgets\Performance\GrievanceChart;
+use App\Filament\Widgets\Performance\ProactiveChart;
 use Filament\Forms\Components\DatePicker;
-use App\Filament\Widgets\PerformanceChart;
-use App\Filament\Widgets\InfrastructureChart;
+use App\Filament\Widgets\Performance\TransparentChart;
+use App\Filament\Widgets\Performance\AccessibilityChart;
 use Filament\Pages\Dashboard as BaseDashboard;
-use App\Filament\Widgets\CommunityEngagementChart;
-use App\Filament\Widgets\GrievanceChart;
 use Filament\Pages\Dashboard\Concerns\HasFiltersForm;
 
 class Dashboard extends BaseDashboard
@@ -36,10 +33,14 @@ class Dashboard extends BaseDashboard
                             ->required(),
 
                         DatePicker::make('start_date')
-                            ->label('Start Date'),
+                            ->label('Start Date')
+                            ->default(now()->startOfMonth())
+                            ->required(),
 
                         DatePicker::make('end_date')
-                            ->label('End Date'),
+                            ->label('End Date')
+                            ->default(now()->endOfDay())
+                            ->required(),
                     ])
                     ->columns(3),
             ]);
@@ -49,7 +50,9 @@ class Dashboard extends BaseDashboard
     {
         return [
             AccessibilityChart::class,
-            GrievanceChart::class
+            GrievanceChart::class,
+            ProactiveChart::class,
+            TransparentChart::class
         ];
     }
 }
