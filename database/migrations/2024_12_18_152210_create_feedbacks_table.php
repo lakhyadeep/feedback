@@ -21,24 +21,24 @@ return new class extends Migration
             $table->string("address");
             $table->string("phone_no", 12);
 
-            $table->enum('accessibility', ['Very Satisfied', 'Satisfied', 'Neutral', 'Dissatisfied', 'Very Dissatisfied'])->nullable();
-            $table->enum('responsiveness_grievances', ['Excellent', 'Good', 'Average', 'Poor', 'Very Poor'])->nullable();
-            $table->enum('proactive_step_issues', ['Always', 'Sometimes', 'Rarely', 'Never'])->nullable();
-            $table->enum('transparent_action_and_decision', ['Yes', 'No'])->nullable();
+            $table->tinyInteger('accessibility')->nullable();
+            $table->tinyInteger('responsiveness_grievances')->nullable();
+            $table->tinyInteger('proactive_step_issues')->nullable();
+            $table->tinyInteger('transparent_action_and_decision')->nullable();
             $table->text('suggestions')->nullable();
 
-            $table->enum('roads_pavements', ['Excellent', 'Good', 'Average', 'Poor'])->nullable();
-            $table->enum('drainage_system', ['Excellent', 'Good', 'Average', 'Poor'])->nullable();
-            $table->enum('waste_management', ['Excellent', 'Good', 'Average', 'Poor'])->nullable();
-            $table->enum('street_lighting', ['Excellent', 'Good', 'Average', 'Poor'])->nullable();
-            $table->enum('parks_public_spaces', ['Excellent', 'Good', 'Average', 'Poor'])->nullable();
-            $table->enum('sanitation_water_supply_adequate', ['Yes', 'No'])->nullable();
-            $table->enum('feel_safe', ['Yes', 'No'])->nullable();
-            $table->enum('environmentally_sustainable', ['Yes', 'No'])->nullable();
+            $table->tinyInteger('roads_pavements')->nullable();
+            $table->tinyInteger('drainage_system')->nullable();
+            $table->tinyInteger('waste_management')->nullable();
+            $table->tinyInteger('street_lighting')->nullable();
+            $table->tinyInteger('parks_public_spaces')->nullable();
+            $table->tinyInteger('sanitation_water_supply_adequate')->nullable();
+            $table->tinyInteger('feel_safe')->nullable();
+            $table->tinyInteger('environmentally_sustainable')->nullable();
 
-            $table->enum('attended_meeting_drive_event', ['Yes', 'No'])->nullable();
-            $table->enum('opinions_considered_dev_plans', ['Always', 'Sometimes', 'Rarely', 'Never'])->nullable();
-            $table->enum('communication_citizens_municipality', ['Excellent', 'Good', 'Average', 'Poor'])->nullable();
+            $table->tinyInteger('attended_meeting_drive_event')->nullable();
+            $table->tinyInteger('opinions_considered_dev_plans')->nullable();
+            $table->tinyInteger('communication_citizens_municipality')->nullable();
             $table->json('most_critical_issues')->nullable();
             $table->text('additional_suggestions')->nullable();
             $table->timestamps();
