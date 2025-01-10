@@ -33,7 +33,6 @@ class AccessibilityChart extends ChartWidget
             )
             ->perDay()
             ->average('accessibility');
-
         return [
             'datasets' => [
                 [
@@ -84,7 +83,7 @@ class AccessibilityChart extends ChartWidget
             'scales' => [
                 'y' => [
                     'grid' => [
-                        'display' => false,
+                        'display' => true,
                     ],
                 ],
             ],
