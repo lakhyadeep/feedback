@@ -82,7 +82,7 @@ class DrainageChart extends ChartWidget
             'scales' => [
                 'y' => [
                     'grid' => [
-                        'display' => false,
+                        'display' => true,
                     ],
                 ],
             ],
