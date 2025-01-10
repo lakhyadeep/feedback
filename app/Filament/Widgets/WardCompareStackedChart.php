@@ -6,7 +6,7 @@ use App\Models\Feedback;
 use Filament\Widgets\ChartWidget;
 use Filament\Widgets\Concerns\InteractsWithPageFilters;
 
-class WardCompareChart extends ChartWidget
+class WardCompareStackedChart extends ChartWidget
 {
     use InteractsWithPageFilters;
 
@@ -16,35 +16,41 @@ class WardCompareChart extends ChartWidget
     protected static ?string $maxHeight = '300px';
 
 
+
     protected function getData(): array
     {
-
         $data = [];
-        $fiveColorRating = false;
         $param = $this->filters['param'];
+        if (str_contains($param, '***p')) {
 
-
-        if (str_contains($param, '***f')) {
-            $fiveColorRating = true;
             $param = substr($param, 0, -4);
         }
+
         //dd($param);
-        $data = Feedback::calcutateParameterAverageWardWise($param);
-        if (isset($data) && !empty($data)) {
-            foreach ($data as $row) {
-                $wards[] = 'Ward No' . ' ' . $row['ward_id'];
-                $average[] = $row['average'];
-                $backgroundColor[] = Feedback::setColorBasedOnRating($fiveColorRating, $row['average']);
+
+        $percentages = Feedback::calculatePercentageWardWise($param);
+        if (isset($percentages) && !empty($percentages)) {
+            foreach ($percentages as $row) {
+                $wards[] = $row['ward_id'];
+                $yesPercentage[] = $row['yesPercentage'];
+                $noPercentage[] = $row['noPercentage'];
             }
         }
 
-        $datasets[] = [
-            'label' => [],
-            'data' => $average,
-            'backgroundColor' => $backgroundColor,
-            'borderWidth' => 0,
+        $datasets = [
+            [
+                'label' => [],
+                'data' => $yesPercentage,
+                'backgroundColor' => 'green',
+                'borderWidth' => 0,
+            ],
+            [
+                'label' => [],
+                'data' => $noPercentage,
+                'backgroundColor' => 'red',
+                'borderWidth' => 0,
+            ]
         ];
-
 
         return [
             'datasets' => $datasets,
@@ -68,22 +74,24 @@ class WardCompareChart extends ChartWidget
             'plugins' => [
                 'title' => [
                     'display' => true,
-                    'position' => "top",
+                    'position' => "top"
                 ],
+
                 'legend' => [
                     'display' => false,
                 ]
             ],
             'scales' => [
                 'x' => [
+                    'stacked' => true,
                     'grid' => [
                         'display' => false,
                     ],
                 ],
                 'y' => [
+                    'stacked' =>  true,
                     'grid' => [
                         'display' => true,
-                        //'offset' => true
                     ],
                 ],
             ],

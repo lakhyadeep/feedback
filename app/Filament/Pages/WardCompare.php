@@ -3,11 +3,11 @@
 namespace App\Filament\Pages;
 
 use App\Filament\Widgets\WardCompareChart;
+use App\Filament\Widgets\WardCompareStackedChart;
 use Filament\Forms\Form;
 use Filament\Facades\Filament;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TextInput;
 use Filament\Pages\Dashboard as BaseDashboard;
 use Filament\Pages\Dashboard\Concerns\HasFiltersForm;
 
@@ -17,7 +17,6 @@ class WardCompare extends BaseDashboard
 
     protected static string $routePath = '/ward/comparison';
     protected static ?string $title = 'Ward Comparison';
-
 
 
     public static function getNavigationLabel(): string
@@ -43,29 +42,28 @@ class WardCompare extends BaseDashboard
                             ->options([
                                 'Performance of WC' => [
                                     'accessibility***f' => 'Accessibility',
-                                    'responsiveness_grievances***f' => 'responsiveness_grievances',
-                                    'proactive_step_issues***f' => 'proactive_step_issues',
-                                    'transparent_action_and_decision***p' => 'transparent_action_and_decision'
+                                    'responsiveness_grievances***f' => 'Responsiveness to grievances',
+                                    'proactive_step_issues***f' => 'Proactive step to address key issues',
+                                    'transparent_action_and_decision***p' => 'Transparent in actions and decisions'
                                 ],
                                 'Development & Infrastructure' => [
-                                    'roads_pavements' => 'roads_pavements',
-                                    'drainage_system' => 'drainage_system',
-                                    'waste_management' => 'waste_management',
-                                    'street_lighting' => 'street_lighting',
-                                    'parks_public_spaces' => 'parks_public_spaces',
-                                    'sanitation_water_supply_adequate***p' => 'sanitation_water_supply_adequate',
-                                    'feel_safe***p' => 'feel_safe',
-                                    'environmentally_sustainable***p' => 'environmentally_sustainable'
+                                    'roads_pavements' => 'Roads and Pavements',
+                                    'drainage_system' => 'Drainage system',
+                                    'waste_management' => 'Waste management',
+                                    'street_lighting' => 'Street Lighting',
+                                    'parks_public_spaces' => 'Parks & Public spaces',
+                                    'sanitation_water_supply_adequate***p' => 'Sanitation and adequate water supply services',
+                                    'feel_safe***p' => 'Feel safe',
+                                    'environmentally_sustainable***p' => 'Environmentally sustainable'
 
                                 ],
                                 'Community Engagement' => [
-                                    'attended_meeting_drive_event***p' => 'attended_meeting_drive_event',
-                                    'opinions_considered_dev_plans' => 'opinions_considered_dev_plans',
-                                    'communication_citizens_municipality' => 'communication_citizens_municipality'
+                                    'attended_meeting_drive_event***p' => 'Organized meetings, drives, or events',
+                                    'opinions_considered_dev_plans' => 'Citizen opinions considered on developement plans',
+                                    'communication_citizens_municipality' => 'Communication between citizens and the municipality'
                                 ],
                             ])
                             ->default('accessibility')
-                            ->loadingMessage('Loading authors...')
                             ->selectablePlaceholder(false)
                             ->required(),
                     ])
@@ -75,8 +73,20 @@ class WardCompare extends BaseDashboard
 
     public function getWidgets(): array
     {
+        $widgetClass = [
+            's' =>  WardCompareStackedChart::class,
+            'ns' => WardCompareChart::class
+        ];
+
+        $param = $this->filters['param'];
+        if (str_contains($param, '***p')) {
+            $widget = $widgetClass['s'];
+        } else {
+            $widget = $widgetClass['ns'];
+        }
+
         return [
-            WardCompareChart::class
+            $widget
         ];
     }
 }
