@@ -31,7 +31,7 @@ class WardCompareStackedChart extends ChartWidget
         $percentages = Feedback::calculatePercentageWardWise($param);
         if (isset($percentages) && !empty($percentages)) {
             foreach ($percentages as $row) {
-                $wards[] = $row['ward_id'];
+                $wards[] = 'Ward No' . ' ' . $row['ward_id'];
                 $yesPercentage[] = $row['yesPercentage'];
                 $noPercentage[] = $row['noPercentage'];
             }
