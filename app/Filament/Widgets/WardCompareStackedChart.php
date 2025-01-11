@@ -39,13 +39,13 @@ class WardCompareStackedChart extends ChartWidget
 
         $datasets = [
             [
-                'label' => [],
+                //'label' => [],
                 'data' => $yesPercentage,
                 'backgroundColor' => 'green',
                 'borderWidth' => 0,
             ],
             [
-                'label' => [],
+                //'label' => [],
                 'data' => $noPercentage,
                 'backgroundColor' => 'red',
                 'borderWidth' => 0,
