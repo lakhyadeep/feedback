@@ -36,7 +36,7 @@ class DrainageChart extends ChartWidget
             'datasets' => [
                 [
                     'label' => 'Drainage System',
-                    'data' => $data->map(fn(TrendValue $value) => $value->aggregate),
+                    'data' => $data->map(fn(TrendValue $value) => round($value->aggregate, 1)),
                     'backgroundColor' => $data->map(function (TrendValue $value) {
                         if ($value->aggregate > 2.5)
                             return 'green';
