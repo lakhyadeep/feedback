@@ -249,7 +249,7 @@
 
                         </div>
                         <div class="qset">
-                            <h6>{{ __('label.suggestions') }} (optional)</h6>
+                            <h6>{{ __('label.suggestions') }} ({{ __('label.optional') }})</h6>
                             <div>
                                 <textarea class="form-control" wire:model.lazy='suggestions' name="suggestions" id="suggestions" rows="3"
                                     placeholder="{{ __('label.writeYourFeedback') }}"></textarea>
