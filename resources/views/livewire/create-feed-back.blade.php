@@ -12,7 +12,7 @@
                         <select class="w-auto form-select form-select-sm display-inline" id="wn"
                             wire:model.lazy='preferred_language' wire:click='changeLanguage()'>
                             <option value="en">English</option>
-                            <option value="bn">বাংলা</option>
+                            {{-- <option value="bn">বাংলা</option> --}}
                             <option value="as">অসমীয়া</option>
                         </select>
                     </div>
@@ -76,8 +76,9 @@
 
                         <div class="p-3 text-right">
 
-                            <button type="button" class="btn btn-primary" wire:click='nextStep()'>Next <i
-                                    class="fa fa-angle-double-right"></i></button>
+                            <button type="button" class="btn btn-primary" wire:click='nextStep()'>
+                                {{ __('label.next') }}
+                                <i class="fa fa-angle-double-right"></i></button>
                         </div>
 
                     </div>
@@ -237,7 +238,7 @@
                                     value="0" type="radio" name="transparent_action_and_decision"
                                     id="transparent_action_and_decision_no" checked>
                                 <label class="form-check-label" for="transparent_action_and_decision_no">
-                                    No
+                                    {{ __('label.no') }}
                                 </label>
                             </div>
 
@@ -248,7 +249,7 @@
 
                         </div>
                         <div class="qset">
-                            <h6>{{ __('label.suggestions') }} (optional)</h6>
+                            <h6>{{ __('label.suggestions') }} ({{ __('label.optional') }})</h6>
                             <div>
                                 <textarea class="form-control" wire:model.lazy='suggestions' name="suggestions" id="suggestions" rows="3"
                                     placeholder="{{ __('label.writeYourFeedback') }}"></textarea>
@@ -649,10 +650,11 @@
                         <div class="p-3 text-right">
                             <button type="button" class="btn btn-light" wire:click='previousStep()'><i
                                     class="fa fa-angle-double-left"></i>
-                                Previous
+                                {{ __('label.previous') }}
                             </button>
-                            <button type="button" class="btn btn-primary" wire:click='nextStep()'>Next <i
-                                    class="fa fa-angle-double-right"></i></button>
+                            <button type="button" class="btn btn-primary"
+                                wire:click='nextStep()'>{{ __('label.next') }}
+                                <i class="fa fa-angle-double-right"></i></button>
                         </div>
 
 
@@ -682,7 +684,7 @@
 
 
                                 <div class="mb-2 inputrow">
-                                    <small>{{ __('label.uploadFile') }} (optional)</small>
+                                    <small>{{ __('label.uploadFile') }}({{ __('label.optional') }})</small>
                                     <input class="form-control" wire:model.lazy='attach_file.{{ $key }}'
                                         type="file" name="attach_file.{{ $key }}"
                                         id="attach_file.{{ $key }}">
@@ -720,7 +722,7 @@
 
                         </div>
                         <div class="qset">
-                            <h6> {{ __('label.suggestionsAdditionalFeedback') }} (optional)</h6>
+                            <h6> {{ __('label.suggestionsAdditionalFeedback') }} ({{ __('label.optional') }})</h6>
                             <div>
                                 <textarea class="form-control" name="additional_suggestions" id="additional_suggestions" rows="4"
                                     placeholder="{{ __('label.writeYourFeedback') }}" wire:model.lazy='additional_suggestions'></textarea>
@@ -737,7 +739,7 @@
                                     class="fa fa-angle-double-left"></i>
                                 {{ __('label.previous') }}
                             </button>
-                            <button type="submit" class="btn btn-primary">{{ __('label.submitFeedback') }}</button>
+                            <button type="submit" class="btn btn-primary">{{ __('label.submit') }}</button>
                         </div>
                     </div>
             @endif

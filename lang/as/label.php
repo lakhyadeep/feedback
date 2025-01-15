@@ -2,13 +2,62 @@
 
 return [
 
-    'wardNo' => "Ward No in Assamese",
-    'name' => "Name Assamese",
-    'address' => "Address Assamese",
-    'PhoneNo' => 'Phone No Assamese',
+    'selectPreferredLanguage' => "পছন্দৰ ভাষা নিৰ্ব্বাচন কৰক",
+    'developmentInfrastructure' => "উন্নয়ন আৰু আন্তঃগাঁথনি",
+    'wardCommissionerPerformance' => "ৱাৰ্ড আয়ুক্তৰ কৰ্মক্ষমতা",
+    'wardNo' => "ৱাৰ্ড নং।",
+    'name' => "নাম",
+    'address' => "ঠিকনা",
+    'PhoneNo' => 'ফোন নম্বৰ',
 
-    'accessibility' => 'Assam How satisfied are you with the accessibility of your Ward Commissioner?',
-    'accOption' => [
-        'verySatisfied' => "Very Satisfied in assam"
-    ]
+    'accessibility' => 'আপোনাৰ ৱাৰ্ড কমিছনাৰৰ সুলভতাত আপুনি কিমান সন্তুষ্ট?',
+    'responsivenessGrievances' => "নাগৰিকৰ অভিযোগৰ প্ৰতি ৱাৰ্ড আয়ুক্তৰ সঁহাৰি কেনেকৈ ৰেটিং দিয়ে?",
+    'proactiveStepIssues' => "আপোনাৰ ৱাৰ্ডৰ মূল বিষয়সমূহৰ সমাধানৰ বাবে ৱাৰ্ড আয়ুক্তই সক্ৰিয় পদক্ষেপ গ্ৰহণ কৰিছেনে?",
+    'transparentActionAndDecisions' => "তেওঁলোকৰ কাম আৰু সিদ্ধান্তত ৱাৰ্ড কমিছনাৰ স্বচ্ছ বুলি অনুভৱ কৰেনে?",
+    'suggestions' => "আপোনাৰ ৱাৰ্ড আয়ুক্তৰ বাবে যিকোনো পৰামৰ্শ বা মতামত শ্বেয়াৰ কৰক:",
+    'rateCurrentStatus' => "আপোনাৰ ৱাৰ্ডত তলত দিয়া সেৱাসমূহৰ বৰ্তমানৰ অৱস্থা ৰেটিং কৰক:",
+
+    'roadsAndPavements' => "ক. পথ আৰু ফুটপাথ",
+    'drainageSystem' => "খ. নিষ্কাশন ব্যৱস্থা",
+    'wasteManagement' => "গ. আৱৰ্জনা ব্যৱস্থা",
+    'streetLighting' => "ঘ. ষ্ট্ৰীট লাইটিং",
+    'parksPublicSpaces' => "ঙ. উদ্যান আৰু ৰাজহুৱা স্থানসমূহক",
+
+
+    'communityEngagement' => "সম্প্ৰদায়ৰ সংযোগ",
+    'attendedMeetingDriveEvent' => "ৱাৰ্ড আয়ুক্তই আয়োজন কৰা কোনো সভা, ড্ৰাইভ, বা অনুষ্ঠানত অংশগ্ৰহণ কৰিছেনে?",
+    'opinionsConsideredDevPlans' => "আপোনাৰ ৱাৰ্ডৰ পৰিকল্পনা প্ৰস্তুত কৰাত ৱাৰ্ড আয়ুক্তই আপোনাৰ মতামত বিবেচনা কৰে বুলি আপুনি ভাবেনে?",
+    'overallCommunication' => "নাগৰিক আৰু পৌৰসভাৰ মাজত সামগ্ৰিক যোগাযোগক আপুনি কেনেদৰে ৰেটিং দিব?",
+    'mostCriticalIssues' => "আপোনাৰ ৱাৰ্ডত আপুনি অনুভৱ কৰা তিনিটা আটাইতকৈ জটিল বিষয় কি কি?",
+    'suggestionsAdditionalFeedback' => "পৰামৰ্শ আৰু অতিৰিক্ত মতামত",
+
+    'writeYourIssue' => "আপোনাৰ সংখ্যাটো লিখক",
+    'writeYourFeedback' => "আপোনাৰ মতামত লিখক",
+    'sanitationWaterSupply' => "আপোনাৰ ৱাৰ্ডত অনাময় আৰু পানী যোগান সেৱা পৰ্যাপ্ত নেকি?",
+    'feelSafe' => "আপুনি আপোনা ৰৱাৰ্ডত নিৰাপদ অনুভৱ কৰেনে (যেনে, নিৰাপত্তা, ৰাস্তাৰপোহৰ)?",
+    'environmentallySustainable' => "আপুনি ৱাৰ্ডটো পৰিৱেশৰ প্ৰতি বহনক্ষম বুলি ভাবেনে (যেনে, সেউজীয়া ঠাই, আৱৰ্জনা পৃথকীকৰণ)?",
+    'uploadFile' => "সংযুক্তি আপলোড কৰক",
+    'optional' => "বৈকল্পিক",
+
+    'verySatisfied' => "অতি সন্তুষ্ট",
+    'satisfied' => "সন্তুষ্ট",
+    'neutral' => "নিৰপেক্ষ",
+    'dissatisfied' => "অসন্তুষ্ট",
+    'veryDissatisfied' => "অতি অসন্তুষ্ট",
+    'excellent' => "অতি উত্তম",
+    'good' => "ভাল",
+    'average' => "গড়",
+    'poor' => "দুখীয়া",
+    'veryPoor' => "অতি দুখীয়া",
+    'always' => "সদায়",
+    'sometimes' => "কেতিয়াবা",
+    'rarely' => "কাচিত্",
+    'never' => "কেতিয়াও নহয়",
+    'yes' => "হয়",
+    'no' => "নহয়",
+    'previous' => "পূৰ্ৱবৰ্তী",
+    'next' => "পৰৱৰ্তী",
+    'submit' => "দাখিল কৰক",
+    'remove' => "আঁতৰোৱা",
+    'addMore' => "আৰু যোগ কৰক",
 ];

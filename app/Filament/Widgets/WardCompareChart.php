@@ -39,7 +39,7 @@ class WardCompareChart extends ChartWidget
         }
 
         $datasets[] = [
-            'label' => [],
+            // 'label' => [],
             'data' => $average,
             'backgroundColor' => $backgroundColor,
             'borderWidth' => 0,

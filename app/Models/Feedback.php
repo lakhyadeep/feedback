@@ -9,15 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Feedback extends Model
 {
-
     use HasFactory;
-
-    const FIVE_VALUE = 5;
-    const FOUR_VALUE = 4;
-    const THREE_VALUE = 3;
-    const TWO_VALUE = 2;
-    const ONE_VALUE = 1;
-    const ZERO_VALUE = 0;
 
     protected $table = "feedbacks";
 
@@ -41,7 +33,8 @@ class Feedback extends Model
 
         if ($totalCount > 0) {
             $valueCount = $query->where($column, $value)->count();
-            return ($valueCount / $totalCount) * 100;
+            $percentage = ($valueCount / $totalCount) * 100;
+            return round($percentage, 2);
         }
 
         return 0;
@@ -49,7 +42,7 @@ class Feedback extends Model
 
     public static function calcutateParameterAverageWardWise($param)
     {
-        $average = self::select('ward_id', DB::raw("AVG($param) as average"))
+        $average = self::select('ward_id', DB::raw("ROUND(AVG($param),1) as average"))
             ->groupBy('ward_id')
             ->get()->toArray();
         return $average;
@@ -60,8 +53,8 @@ class Feedback extends Model
     {
         $data = self::select(
             'ward_id',
-            DB::raw("SUM($column = 1) * 100 / COUNT(*) AS yesPercentage"),
-            DB::raw("SUM($column = 0) * 100 / COUNT(*) AS noPercentage"),
+            DB::raw("ROUND(SUM($column = 1) * 100 / COUNT(*),2) AS yesPercentage"),
+            DB::raw("ROUND(SUM($column = 0) * 100 / COUNT(*),2) AS noPercentage"),
         )
             ->groupBy('ward_id')->get()->toArray();
 
