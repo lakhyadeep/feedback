@@ -70,7 +70,7 @@ class CreateFeedBack extends Component
     public function nextStep()
     {
         // validate
-        //$this->validate($this->validationRules[$this->currentStep]);
+        $this->validate($this->validationRules[$this->currentStep]);
 
         $this->currentStep++;
         if ($this->currentStep > $this->totalSteps) {
