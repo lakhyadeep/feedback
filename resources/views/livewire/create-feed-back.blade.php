@@ -10,9 +10,8 @@
                 <div>
                     <div class="gap-3 card-header d-flex align-items-center">{{ __('label.selectPreferredLanguage') }}
                         <select class="w-auto form-select form-select-sm display-inline" id="wn"
-                            wire:model.lazy='preferred_language' wire:click='changeLanguage()'>
+                            wire:model.lazy='preferred_language' wire:change='changeLanguage'>
                             <option value="en">English</option>
-                            {{-- <option value="bn">বাংলা</option> --}}
                             <option value="as">অসমীয়া</option>
                         </select>
                     </div>
