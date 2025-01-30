@@ -108,6 +108,8 @@ class FeedbackResource extends Resource
                             ->schema([
                                 FileUpload::make('file_name')
                                     ->label('Upload attachment')
+                                    ->openable()
+                                    ->downloadable(),
                             ]),
                         Forms\Components\Textarea::make('additional_suggestions')
                             ->label("Any additional feedback or suggestions for the Ward Commissioner or Municipality")
