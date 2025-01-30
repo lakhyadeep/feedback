@@ -65,7 +65,8 @@ class WardCompare extends BaseDashboard
                             ])
                             ->default('accessibility')
                             ->selectablePlaceholder(false)
-                            ->required(),
+                            ->required()
+                            ->afterStateUpdated(fn() => redirect(request()->header('Referer'))) // Refresh after selection,
                     ])
                     ->columns(2)
             ]);

@@ -55,17 +55,21 @@ class WardOverview extends BaseDashboard
                             ->label('Ward Number')
                             ->options(Ward::all()->pluck('title', 'id'))
                             ->default('1')
-                            ->required(),
+                            ->required()
+                            ->afterStateUpdated(fn() => redirect(request()->header('Referer'))), // Refresh after selection,
 
                         DatePicker::make('start_date')
                             ->label('Start Date')
                             ->default(now()->startOfMonth())
-                            ->required(),
+                            ->required()
+                            ->afterStateUpdated(fn() => redirect(request()->header('Referer'))),
 
                         DatePicker::make('end_date')
                             ->label('End Date')
                             ->default(now()->endOfDay())
-                            ->required(),
+                            ->required()
+                            ->afterStateUpdated(fn() => redirect(request()->header('Referer'))),
+
                     ])
                     ->columns(3),
             ]);
