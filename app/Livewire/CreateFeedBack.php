@@ -131,7 +131,8 @@ class CreateFeedBack extends Component
                 ]
             ],
             'ward_id' => ['required'],
-            'name' => ['required', 'min:3', 'regex:/^[a-zA-Z\s]+$/'],
+            //'name' => ['required', 'min:3', 'regex:/^[a-zA-Z\s]+$/'],
+            'name' => ['required', 'min:3'],
             'address' => ['required'],
             'phone_no' => ['required', 'regex:/^[6-9]\d{9}$/']
         ],

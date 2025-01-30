@@ -62,8 +62,8 @@
 
 
                         <div class="mb-3">
-                            <label for="ph" class="form-label">{{ __('label.PhoneNo') }}:<span
-                                    class="redtxt">*</span></label>
+                            <label for="ph" class="form-label">{{ __('label.PhoneNo') }}:<span class="redtxt">*
+                                </span>(Number must be in English)</label>
                             <input type="text" class="form-control" id="ph" name="phone_no"
                                 wire:model.lazy='phone_no'>
 
