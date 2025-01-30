@@ -16,6 +16,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\FileUpload;
 use Filament\Tables\Filters\SelectFilter;
 use App\Filament\Resources\FeedbackResource\Pages;
+use Filament\Forms\Components\Textarea;
 
 class FeedbackResource extends Resource
 {
@@ -94,7 +95,7 @@ class FeedbackResource extends Resource
                         Repeater::make("most_critical_issues")
                             ->label("What are the three most critical issues you feel need immediate attention in your ward?")
                             ->schema([
-                                TextInput::make('issue')
+                                Textarea::make('issue')
                                     ->label('Issue') // Label for the text input
                                     ->required(), // Make this field required
                             ])
