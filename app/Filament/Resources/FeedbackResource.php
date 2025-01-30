@@ -9,14 +9,16 @@ use App\Models\Feedback;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
+use Filament\Tables\Actions\Action;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Repeater;
+use Filament\Forms\Components\Textarea;
 use Illuminate\Database\Eloquent\Model;
 use Filament\Forms\Components\TextInput;
+use Filament\Notifications\Notification;
 use Filament\Forms\Components\FileUpload;
 use Filament\Tables\Filters\SelectFilter;
 use App\Filament\Resources\FeedbackResource\Pages;
-use Filament\Forms\Components\Textarea;
 
 class FeedbackResource extends Resource
 {
@@ -136,6 +138,7 @@ class FeedbackResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('address')
                     ->wrap(),
+
                 Tables\Columns\TextColumn::make('phone_no')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
@@ -154,10 +157,32 @@ class FeedbackResource extends Resource
                 SelectFilter::make('ward_id')
                     ->relationship('ward', 'title')
                     ->label('Ward No'),
+
+                SelectFilter::make('mark_for_review')
+                    ->options([
+                        "1" => "Mark for Review",
+                        "0" => "Mark Reviewed"
+                    ])
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\ViewAction::make(),
+
+                Tables\Actions\Action::make('mark_for_review')
+                    ->label(fn(Feedback $record) => $record->mark_for_review ? 'Mark Reviewed' : 'Mark for Review')
+                    ->icon(fn(Feedback $record) => $record->mark_for_review ? 'heroicon-o-check-circle' : 'heroicon-o-x-circle')
+                    ->color(fn(Feedback $record) => $record->mark_for_review ? 'success' : 'danger')
+                    ->requiresConfirmation()
+                    ->action(function (Feedback $record) {
+                        $record->mark_for_review = !$record->mark_for_review; // Toggle value
+                        $record->save();
+                        Notification::make()
+                            ->title('Updated successfully!')
+                            ->success()
+                            ->send();
+                    })
+                //->after(fn() => $this->refreshRecords()),
+
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
