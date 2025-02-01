@@ -16,9 +16,9 @@ class ViewFeedback extends ViewRecord
     {
         return [
             Action::make('mark_for_review')
-                ->label(fn(Feedback $record) => $record->mark_for_review ? 'Mark Reviewed' : 'Mark for Review')
-                ->icon(fn(Feedback $record) => $record->mark_for_review ? 'heroicon-o-check-circle' : 'heroicon-o-x-circle')
-                ->color(fn(Feedback $record) => $record->mark_for_review ? 'success' : 'danger')
+                ->label(fn(Feedback $record) => !$record->mark_for_review ? 'Review Done' : 'Review Pending')
+                ->icon(fn(Feedback $record) => !$record->mark_for_review ? 'heroicon-o-check-circle' : 'heroicon-o-x-circle')
+                ->color(fn(Feedback $record) => !$record->mark_for_review ? 'success' : 'danger')
                 ->requiresConfirmation()
                 ->action(function (Feedback $record) {
                     $record->mark_for_review = !$record->mark_for_review; // Toggle value

@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use Carbon\Carbon;
 use Filament\Forms;
 use Filament\Tables;
 use Filament\Forms\Get;
@@ -142,14 +143,12 @@ class FeedbackResource extends Resource
                 Tables\Columns\TextColumn::make('phone_no')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
+                    //->dateTime()
                     ->sortable()
-                    ->date('d/m/Y')
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
+                    //->dateTime()
                     ->sortable()
-                    ->date('d/m/Y')
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->defaultSort('created_at', 'desc')
@@ -159,9 +158,10 @@ class FeedbackResource extends Resource
                     ->label('Ward No'),
 
                 SelectFilter::make('mark_for_review')
+                    ->label("Status")
                     ->options([
-                        "1" => "Mark for Review",
-                        "0" => "Mark Reviewed"
+                        "1" => "Review Pending",
+                        "0" => "Review Done"
                     ])
             ])
             ->actions([
@@ -169,9 +169,9 @@ class FeedbackResource extends Resource
                 Tables\Actions\ViewAction::make(),
 
                 Tables\Actions\Action::make('mark_for_review')
-                    ->label(fn(Feedback $record) => $record->mark_for_review ? 'Mark Reviewed' : 'Mark for Review')
-                    ->icon(fn(Feedback $record) => $record->mark_for_review ? 'heroicon-o-check-circle' : 'heroicon-o-x-circle')
-                    ->color(fn(Feedback $record) => $record->mark_for_review ? 'success' : 'danger')
+                    ->label(fn(Feedback $record) => !$record->mark_for_review ? 'Review Done' : 'Review Pending')
+                    ->icon(fn(Feedback $record) => !$record->mark_for_review ? 'heroicon-o-check-circle' : 'heroicon-o-x-circle')
+                    ->color(fn(Feedback $record) => !$record->mark_for_review ? 'success' : 'danger')
                     ->requiresConfirmation()
                     ->action(function (Feedback $record) {
                         $record->mark_for_review = !$record->mark_for_review; // Toggle value
