@@ -20,9 +20,20 @@ class CommunicationChart extends ChartWidget
     protected function getData(): array
     {
         $data = [];
-        $startDate = $this->filters['start_date'] . ' 00:00:00' ?? now()->startOfMonth();
-        $endDate = $this->filters['end_date'] . ' 23:59:59' ?? now()->endOfDay();
-        $ward_id = $this->filters['ward_id'];
+        if (isset($this->filters['start_date'])) {
+            $startDate = $this->filters['start_date'] . ' 00:00:00';
+        } else
+            $startDate = now()->startOfYear();
+
+        if (isset($this->filters['end_date'])) {
+            $endDate = $this->filters['end_date'] . ' 23:59:59';
+        } else
+            $endDate = now()->endOfDay();
+
+        if (isset($this->filters['ward_id'])) {
+            $ward_id = $this->filters['ward_id'];
+        } else
+            $ward_id = request()->get('ward');
 
         $data = Trend::query(Feedback::where('ward_id', $ward_id))
             ->between(

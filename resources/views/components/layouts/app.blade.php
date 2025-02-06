@@ -12,9 +12,15 @@
         rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet" media="all">
 
-
     <title>{{ $title ?? 'Page Title' }}</title>
 
+    <style>
+        [x-cloak] {
+            display: none !important;
+        }
+    </style>
+    @filamentStyles
+    @vite('resources/css/app.css')
 </head>
 
 <body>
@@ -44,6 +50,9 @@
         </div>
 
     </div>
+
+    @filamentScripts
+    @vite('resources/js/app.js')
 </body>
 
 </html>
