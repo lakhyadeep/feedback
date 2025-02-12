@@ -160,8 +160,8 @@ class FeedbackResource extends Resource
                 SelectFilter::make('mark_for_review')
                     ->label("Status")
                     ->options([
-                        "1" => "Review Pending",
-                        "0" => "Review Done"
+                        "1" => "Review Done",
+                        "0" => "Review Pending"
                     ])
             ])
             ->actions([
@@ -169,9 +169,9 @@ class FeedbackResource extends Resource
                 Tables\Actions\ViewAction::make(),
 
                 Tables\Actions\Action::make('mark_for_review')
-                    ->label(fn(Feedback $record) => !$record->mark_for_review ? 'Review Done' : 'Review Pending')
-                    ->icon(fn(Feedback $record) => !$record->mark_for_review ? 'heroicon-o-check-circle' : 'heroicon-o-x-circle')
-                    ->color(fn(Feedback $record) => !$record->mark_for_review ? 'success' : 'danger')
+                    ->label(fn(Feedback $record) => $record->mark_for_review ? 'Review Done' : 'Review Pending')
+                    ->icon(fn(Feedback $record) => $record->mark_for_review ? 'heroicon-o-check-circle' : 'heroicon-o-x-circle')
+                    ->color(fn(Feedback $record) => $record->mark_for_review ? 'success' : 'danger')
                     ->requiresConfirmation()
                     ->action(function (Feedback $record) {
                         $record->mark_for_review = !$record->mark_for_review; // Toggle value
